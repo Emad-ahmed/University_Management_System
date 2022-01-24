@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!--font awesome icons to get hamberger menu-->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <!--Nav bar starts here-->
+    <div class="topbar">
+      <img src="{% static 'img/lu.png' %}" alt="" />
+      <a href="#" class="Navbar-brand mt-3">Leading University</a>
+    </div>
+    <nav>
+      <input type="checkbox" id="check" />
+      <label for="check" class="hamberger-btn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <ul>
+        <li><a href="/" style="color: white">Home</a></li>
+        <div class="dropdown" style="margin-top: 20px">
+          <a href="#" class="dropbtn dropdown-toggle" style="color: white"
+            >About Us</a
+          >
+          <div class="dropdown-content mt-2">
+            <a href="calculator.htm" style="color: white"
+              >Admission and Registration Policies</a
+            >
+            <hr class="bg-dark" />
+            <a href="" style="color: white">Scholarship and Aid</a>
+            <hr class="bg-dark" />
+            <a href="dictionary.htm" style="color: white">Tuition Fees</a>
+            <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white">Academic Programs</a>
+            <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white">Academic Policy</a>
+            <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white">FAQ</a>
+            <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white">Brochure/Flyer</a>
+
+            <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white">Contact</a>
+          </div>
+        </div>
+        <li><a href="#" style="color: white">IQAC</a></li>
+        <li>
+          <a href="{% url 'register' %}" style="color: white"
+            >Online Registration</a
+          >
+        </li>
+        <li><a href="#" style="color: white">Online Admission</a></li>
+        <div class="dropdown" style="margin-top: 20px">
+          <a href="#" class="dropbtn dropdown-toggle" style="color: white"
+            >Faculty Member</a
+          >
+          <div class="dropdown-content mt-2">
+            <a href="{% url 'bba' %}" style="color: white"
+              >Department of Business Administration</a
+            >
+            <hr class="bg-dark" />
+            <a href="tictoe.htm" style="color: white">Department of CSE</a>
+            <hr class="bg-dark" />
+            <a href="dictionary.htm" style="color: white"
+              >Department of English</a
+            >
+            <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white">Department of EEE</a>
+            <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white"
+              >Department of Civil Engineering</a
+            >
+            <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white"
+              >Department of Architecture</a
+            >
+            <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white"
+              >Department of Architecture</a
+            >
+            <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white"
+              >Department of Architecture</a
+            >
+            <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white">Department of Law</a>
+          </div>
+        </div>
+        <div class="dropdown" style="margin-top: 20px">
+          <a href="#" class="dropbtn dropdown-toggle" style="color: white"
+            >Student Portal</a
+          >
+          <div class="dropdown-content mt-2">
+            <a href="calculator.htm" style="color: white">Result</a>
+            <hr class="bg-dark" />
+            <a href="tictoe.htm" style="color: white">Semester Registration</a>
+            <hr class="bg-dark" />
+            <a href="dictionary.htm" style="color: white"
+              >Guide line for Tuition Fees Payment System</a
+            >
+            <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white">Change Password</a>
+            <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white">Class Routine</a>
+            <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white"
+              >Programmer’s Rank-list</a
+            >
+            <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white">Transport Service</a>
+          </div>
+        </div>
+
+        <li><a href="{% url 'loginview' %}" style="color: white">Login</a></li>
+        <li><a href="#" style="color: white">Logout</a></li>
+      </ul>
+    </nav>
+
+    {% block content %}{% endblock content %} <br />
+
+    <hr / > {% comment %} Footer {% endcomment %}
+    <div class="footer text-center">
+      <div class="heading">
+        <h2>Leading University</h2>
+      </div>
+      <div class="content">
+        <div class="social-media ms-5">
+          <h4>Social</h4>
+          <p>
+            <a href="https://www.linkedin.com/in/sanket-bodke-995b5b205/"
+              ><i class="fab fa-linkedin"></i> Linkedin</a
+            >
+          </p>
+          <p>
+            <a href="https://twitter.com/Sanket46171296"
+              ><i class="fab fa-twitter"></i> Twitter</a
+            >
+          </p>
+          <p>
+            <a href="https://github.com/sanketbodke"
+              ><i class="fab fa-github"></i> Github</a
+            >
+          </p>
+          <p>
+            <a href="https://codepen.io/sanketbodke"
+              ><i class="fab fa-codepen"></i> Codepen</a
+            >
+          </p>
+          <p>
+            <a href="https://www.instagram.com/imsanketbodke/?hl=en"
+              ><i class="fab fa-instagram"></i> Instagram</a
+            >
+          </p>
+        </div>
+        <div class="links ms-5">
+          <h4>Quick links</h4>
+          <p><a href="#">Home</a></p>
+          <p><a href="#">About Us</a></p>
+          <p><a href="#">Contact</a></p>
+        </div>
+        <div class="details ms-5">
+          <h4 class="address">Address</h4>
+          <p>
+            The campus of LU is located in Ragib Nagar, Kamal Bazar, South
+            Surma, Sylhet
+          </p>
+          <h4 class="mobile">Mobile</h4>
+          <p><a href="#">+8801313084499</a></p>
+          <h4 class="mail">Email</h4>
+          <p><a href="#">info@lus.ac.bd</a></p>
+        </div>
+      </div>
+      <footer>
+        <hr />
+        &copy; 2021 Leading University.
+      </footer>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

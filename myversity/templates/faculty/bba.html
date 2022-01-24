@@ -1,0 +1,40 @@
+{% extends 'base.html' %} <br />
+
+{% block title %}BBA{% endblock title %} <br />
+
+{% block content %} <br />
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+<div class="jumbotron">
+  <h1 class="text-center p-0 m-0 mb-5">
+    <b> Faculty Members of Business Administration</b>
+  </h1>
+  <div class="container mt-5">
+    <div class="row text-center">
+      <div class="col-md-4">
+        <a href="">
+          <img src="{% static 'img/bba1.png' %}" alt="" />
+          <p>Professor Dr. Bashir Ahmed Bhuiyan</p>
+          <p>Dean</p>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <img src="{% static 'img/bba2.JPG' %}" alt="" />
+        <p>Dr. Mohammad Shahansha Molla</p>
+        <p>Additional Director, IQAC and Associate Professor</p>
+      </div>
+      <div class="col-md-4">
+        <img src="{% static 'img/bba3.JPG' %}" alt="" />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut,
+          voluptate?
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock content %}

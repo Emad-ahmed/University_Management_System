@@ -1,0 +1,56 @@
+.container {
+    margin-left: 28%;
+    text-align: center;
+}
+
+.bkash-border {
+    background-color: #E0146D;
+    width: 35rem;
+    height: 36rem;
+}
+
+.sub-border {
+    width: 28rem;
+    position: absolute;
+    margin-top: 11%;
+    margin-left: 4%;
+    height: 8rem;
+    background-color: #E0146D;
+    box-shadow: 2px 2px 2px 2px;
+    border-radius: 10px 10px 10px 0px;
+}
+
+.sub-border h6 {
+    color: white;
+}
+
+.my_payment_img {
+    position: absolute;
+    width: 35rem;
+    left: 29%;
+    height: 7rem;
+    object-fit: cover;
+}
+
+.bkash-form {
+    margin-top: 8%;
+}
+
+.new-input {
+    border-radius: 5px 5px 0px 5px;
+    padding: 4px;
+}
+
+.label1 {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.form-check-label {
+    color: white;
+}
+
+.btn .btn {
+    background-color: #CC5986;
+    width: 130px;
+}
