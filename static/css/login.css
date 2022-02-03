@@ -266,7 +266,9 @@ form:after {
 }
 
 #content form input[type="text"],
-#content form input[type="password"] {
+#content form input[type="password"],
+#content form input[type="date"],
+#content form input[type="number"] {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
@@ -282,7 +284,6 @@ form:after {
     -ms-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    background: #eae7e7 url(https://cssdeck.com/uploads/media/items/8/8bcLQqF.png) no-repeat;
     border: 1px solid #c8c8c8;
     color: #777;
     font: 13px Helvetica, Arial, sans-serif;
@@ -292,7 +293,9 @@ form:after {
 }
 
 #content form input[type="text"]:focus,
-#content form input[type="password"]:focus {
+#content form input[type="password"]:focus,
+#content form input[type="date"]:focus,
+#content form input[type="number"]:focus {
     -webkit-box-shadow: 0 0 2px #ed1c24 inset;
     -moz-box-shadow: 0 0 2px #ed1c24 inset;
     -ms-box-shadow: 0 0 2px #ed1c24 inset;
@@ -309,6 +312,14 @@ form:after {
 
 #password {
     background-position: 10px -53px !important
+}
+
+#birthday {
+    background-position: 10px -53px !important;
+}
+
+#id_no {
+    background-position: 10px -53px !important;
 }
 
 #content form input[type="submit"] {

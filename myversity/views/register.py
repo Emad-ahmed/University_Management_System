@@ -35,5 +35,4 @@ class RegisterView(View):
             messages.success(request, 'Profile details updated.')
             return render(request, 'register.html', {'form': fm})
         except:
-            messages.error(request, 'Something Wrong Happened')
             return render(request, 'register.html', {'form': fm})

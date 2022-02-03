@@ -8,11 +8,22 @@ while True:
         break
 
 
+choice_department = (
+    ("CSE", "CSE"),
+    ("ENGLISH", "ENGLISH"),
+    ("BBA", "BBA"),
+    ("BANGLA", "BANGLA"),
+    ("ISLAMIC STUDIES", "ISLAMIC STUDIES"),
+    ("EEE", "EEE"),
+)
+
+
 class Registration(models.Model):
     name = models.CharField(max_length=120)
-    phone = models.IntegerField(unique=True)
-    email = models.EmailField(unique=True)
-    departMent = models.CharField(max_length=30)
+    phone = models.IntegerField()
+    email = models.EmailField()
+    departMent = models.CharField(
+        max_length=200, choices=choice_department, default="CSE")
     ssc_gpa = models.FloatField()
     hsc_gpa = models.FloatField()
     referece_number = models.CharField(

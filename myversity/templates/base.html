@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -143,62 +144,103 @@
     {% block content %}{% endblock content %} <br />
 
     <hr / > {% comment %} Footer {% endcomment %}
-    <div class="footer text-center">
-      <div class="heading">
-        <h2>Leading University</h2>
+
+    <link
+      href="https://use.fontawesome.com/releases/v5.0.1/css/all.css"
+      rel="stylesheet"
+    />
+
+    <footer>
+      <div class="row-footer">
+        <div class="site-logo">
+          <span>EmadLu</span>
+          <ul class="main-nav">
+            <li class="item1">
+              <span>E</span>
+            </li>
+            <li class="item2">
+              <span>M</span>
+            </li>
+            <li class="item3">
+              <span>A</span>
+            </li>
+            <li class="item4">
+              <span>D</span>
+            </li>
+          </ul>
+        </div>
+        <div class="site-links">
+          <span>Laguages</span>
+          <ul class="list-links">
+            <li><a>Python</a></li>
+            <li><a>Java</a></li>
+            <li><a>JavaScript</a></li>
+            <li><a>HTML & CSS / SCSS</a></li>
+          </ul>
+        </div>
+        <div class="adr-email">
+          <span>Address</span>
+          <ul class="">
+            <li class="location">
+              <a
+                ><i class="fas fa-map-pin"></i>Sylhet, Golapgonj,
+                Dhakadakshin</a
+              >
+            </li>
+            <li class="email">
+              <a href="mailto:amadahmed1234678@gmail.com?subject=subject text"
+                >amadahmed1234678@gmail.com</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="subscribe-form">
+          <input type="email" placeholder="Your E-Mail Address" />
+          <button type="submit">Subscribe</button>
+          <p>I respect your privacy. Unsubscribe at any time.</p>
+        </div>
       </div>
-      <div class="content">
-        <div class="social-media ms-5">
-          <h4>Social</h4>
-          <p>
-            <a href="https://www.linkedin.com/in/sanket-bodke-995b5b205/"
-              ><i class="fab fa-linkedin"></i> Linkedin</a
-            >
-          </p>
-          <p>
-            <a href="https://twitter.com/Sanket46171296"
-              ><i class="fab fa-twitter"></i> Twitter</a
-            >
-          </p>
-          <p>
-            <a href="https://github.com/sanketbodke"
-              ><i class="fab fa-github"></i> Github</a
-            >
-          </p>
-          <p>
-            <a href="https://codepen.io/sanketbodke"
-              ><i class="fab fa-codepen"></i> Codepen</a
-            >
-          </p>
-          <p>
-            <a href="https://www.instagram.com/imsanketbodke/?hl=en"
-              ><i class="fab fa-instagram"></i> Instagram</a
-            >
-          </p>
-        </div>
-        <div class="links ms-5">
-          <h4>Quick links</h4>
-          <p><a href="#">Home</a></p>
-          <p><a href="#">About Us</a></p>
-          <p><a href="#">Contact</a></p>
-        </div>
-        <div class="details ms-5">
-          <h4 class="address">Address</h4>
-          <p>
-            The campus of LU is located in Ragib Nagar, Kamal Bazar, South
-            Surma, Sylhet
-          </p>
-          <h4 class="mobile">Mobile</h4>
-          <p><a href="#">+8801313084499</a></p>
-          <h4 class="mail">Email</h4>
-          <p><a href="#">info@lus.ac.bd</a></p>
+
+      <hr class="mainhr" />
+
+      <div class="row-footer">
+        <div class="follow-icons">
+          <li><span>Follow me here</span></li>
+          <li>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fab fa-stack-overflow"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fab fa-codepen"></i></a>
+          </li>
         </div>
       </div>
-      <footer>
-        <hr />
-        &copy; 2021 Leading University.
-      </footer>
-    </div>
+
+      <div class="row-footer">
+        <div class="right-dis">
+          Made with
+          <i style="color: red; font-size: 12px" class="fas fa-heart"></i> by
+          <strong>Emad Ahmed</strong>
+        </div>
+        <div class="left-dis">
+          Copyright <strong>CodePy</strong> © 2022. All the rights are reserved.
+        </div>
+      </div>
+    </footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

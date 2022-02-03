@@ -15,6 +15,18 @@
         <input type="text" placeholder="Username" required="" id="username" />
       </div>
       <div>
+        <input type="date" id="birthday" name="birthday" required="" />
+      </div>
+      <div>
+        <input
+          type="number"
+          id="id_no"
+          name="id_no"
+          required=""
+          placeholder="Id No"
+        />
+      </div>
+      <div>
         <input
           type="password"
           placeholder="Password"
@@ -22,6 +34,7 @@
           id="password"
         />
       </div>
+
       <div class="ml-3">
         <input type="submit" value="Register" />
         <a href="{% url 'loginview' %}">All Ready Have An Account?</a>
