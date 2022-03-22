@@ -6,13 +6,13 @@
 .bkash-border {
     background-color: #E0146D;
     width: 35rem;
-    height: 36rem;
+    height: 28rem;
 }
 
 .sub-border {
     width: 28rem;
     position: absolute;
-    margin-top: 11%;
+    margin-top: 4%;
     margin-left: 4%;
     height: 8rem;
     background-color: #E0146D;
@@ -21,6 +21,8 @@
 }
 
 .sub-border h6 {
+    margin-top: 5%;
+    margin-bottom: 8%;
     color: white;
 }
 

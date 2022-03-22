@@ -1,5 +1,5 @@
 from django.contrib import admin
-from myversity.models.registration import Registration
+from myversity.models import Registration, Payment_Done
 
 # Register your models here.
 
@@ -7,3 +7,8 @@ from myversity.models.registration import Registration
 @admin.register(Registration)
 class RegistrationDisplay(admin.ModelAdmin):
     list_display = ["id", "name", 'referece_number', "departMent"]
+
+
+@admin.register(Payment_Done)
+class RegistrationDisplay(admin.ModelAdmin):
+    list_display = ["id"]

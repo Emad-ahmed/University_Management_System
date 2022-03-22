@@ -1,3 +1,6 @@
+import email
+import imp
+from django.conf import Settings
 from django.db.models.query_utils import subclasses
 from django.http import request
 from django.shortcuts import render, redirect
@@ -7,6 +10,10 @@ from myversity.models.registration import Registration
 from django.core.mail import send_mail
 from myversity.forms import RegistrationForm
 from django.contrib import messages
+from django.conf import settings
+import http.client
+from rest_framework.decorators import api_view
+import requests
 
 
 class RegisterView(View):
@@ -20,19 +27,16 @@ class RegisterView(View):
             if fm.is_valid():
                 myemail = fm.cleaned_data["email"]
                 fm.save()
-            myobject = Registration.objects.get(email=myemail)
-            ref_no = myobject.referece_number
-            my_name = myobject.name
-            my_department = myobject.departMent
-            myobjectemail = myobject.email
-            message = f'Name: {my_name}\nDepartment : {my_department}\nYour Reference Number Is {ref_no}.\n To Get Payment Click This Link "http://127.0.0.1:8000/payment/"'
 
-            subject = "Successfully Register"
-            my_message = message
-            from_email = 'emadahmednew123456789@gmail.com'
-            to_email = [myobjectemail]
-            send_mail(subject, my_message, from_email, to_email)
-            messages.success(request, 'Profile details updated.')
+                messages.success(request, 'Profile details updated.')
+            myuser = Registration.objects.get(email=myemail)
+
+            content = f"Hello {myuser.name}\nYour Registration Has Been Successfull.\nPay 500 For The Form Fee and Use This {myuser.referece_number} Code As A Refernce Number Thanks For Registration.Use This Link For Pay http://127.0.0.1:8000/payment/{myuser.id}\n\nLeading University, Sylhet"
+            send_mail("Successfully Registration",
+                      content,
+                      settings.EMAIL_HOST_USER,
+                      [myemail]
+                      )
             return render(request, 'register.html', {'form': fm})
         except:
             return render(request, 'register.html', {'form': fm})

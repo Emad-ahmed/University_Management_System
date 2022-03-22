@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myversity'
+    'myversity',
+    'account',
+
 
 ]
 
@@ -125,6 +127,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+AUTH_KEY = 'YOUR_KEY_HERE'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -134,9 +138,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'emadahmednew123456789@gmail.com'
-EMAIL_HOST_PASSWORD = 'amadking1234567'
+EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "emadahmednew123456789@gmail.com"
+EMAIL_HOST_PASSWORD = "amadking123"
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

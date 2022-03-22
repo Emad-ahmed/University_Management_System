@@ -25,15 +25,14 @@
 </div>
 {% endfor %} {% endfor %} {% endif %}
 <div class="container signupcontainer pb-5">
-  <div class="jumbotron loginjum p-5">
-    <form action="" method="post" novalidate>
+  <h1 class="text-center mt-5 mb-3">Registration</h1>
+  <div class="jumbotron register loginjum p-5 w-75 m-auto">
+    <form action="" class="mainform" method="post" novalidate>
       {% csrf_token %} {% for fm in form %} {{fm.label_tag}} {{fm}}
-      <p class="text-danger">{{fm.errors|striptags}} <br /></p>
-      <br />
+      <p class="text-danger">{{fm.errors|striptags}}</p>
+
       {% endfor %}
-      <button type="submit" class="btn btn-outline-danger text-white">
-        Register
-      </button>
+      <button type="submit" class="btn btn-outline-danger">Register</button>
     </form>
   </div>
 </div>

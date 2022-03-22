@@ -40,6 +40,7 @@ class RegistrationForm(forms.ModelForm):
 
         try:
             match = Registration.objects.get(phone=phone)
+
         except Registration.DoesNotExist:
             return phone
 
