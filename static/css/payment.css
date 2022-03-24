@@ -4,9 +4,12 @@
 }
 
 .bkash-border {
-    background-color: #E0146D;
+    background-color: #18454A;
     width: 35rem;
     height: 28rem;
+    margin: auto;
+    text-align: center;
+    border-radius: 10px 10px 10px 10px;
 }
 
 .sub-border {
@@ -15,7 +18,7 @@
     margin-top: 4%;
     margin-left: 4%;
     height: 8rem;
-    background-color: #E0146D;
+    background-color: #18454A;
     box-shadow: 2px 2px 2px 2px;
     border-radius: 10px 10px 10px 0px;
 }

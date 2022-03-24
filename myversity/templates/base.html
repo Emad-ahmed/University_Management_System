@@ -69,12 +69,14 @@
           </div>
         </div>
         <li><a href="#" style="color: white">IQAC</a></li>
+        {% if not student %}
         <li>
           <a href="{% url 'register' %}" style="color: white"
             >Online Registration</a
           >
         </li>
-        <li><a href="#" style="color: white">Online Admission</a></li>
+        {% endif %}
+
         <div class="dropdown" style="margin-top: 20px">
           <a href="#" class="dropbtn dropdown-toggle" style="color: white"
             >Faculty Member</a
@@ -116,15 +118,19 @@
             >Student Portal</a
           >
           <div class="dropdown-content mt-2">
+            {% if student %}
             <a href="calculator.htm" style="color: white">Result</a>
             <hr class="bg-dark" />
             <a href="tictoe.htm" style="color: white">Semester Registration</a>
             <hr class="bg-dark" />
+            <a href="scientific.htm" style="color: white">Change Password</a>
+
+            <hr class="bg-dark" />
+            {% endif %}
             <a href="dictionary.htm" style="color: white"
               >Guide line for Tuition Fees Payment System</a
             >
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white">Change Password</a>
+
             <hr class="bg-dark" />
             <a href="scientific.htm" style="color: white">Class Routine</a>
             <hr class="bg-dark" />
@@ -136,8 +142,11 @@
           </div>
         </div>
 
+        {% if not student %}
         <li><a href="{% url 'loginview' %}" style="color: white">Login</a></li>
-        <li><a href="#" style="color: white">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'logout' %}" style="color: white">Logout</a></li>
+        {% endif %}
       </ul>
     </nav>
 

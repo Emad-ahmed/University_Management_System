@@ -265,7 +265,7 @@ form:after {
     position: relative
 }
 
-#content form input[type="text"],
+#content form input[type="email"],
 #content form input[type="password"],
 #content form input[type="date"],
 #content form input[type="number"] {
@@ -292,7 +292,7 @@ form:after {
     width: 80%;
 }
 
-#content form input[type="text"]:focus,
+#content form input[type="email"]:focus,
 #content form input[type="password"]:focus,
 #content form input[type="date"]:focus,
 #content form input[type="number"]:focus {
@@ -306,7 +306,7 @@ form:after {
     outline: none;
 }
 
-#username {
+#email {
     background-position: 10px 10px !important
 }
 

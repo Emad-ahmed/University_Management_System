@@ -1,5 +1,41 @@
 {% extends 'base_account.html' %} <br />
 {% block title %}Approve Addmission{% endblock title %} <br />
 {% block content %}
-<h1>Approve Addmission</h1>
+<link rel="stylesheet" href="css/addmission.css" />
+<h1 class="text-center mb-4 mt-4">Approve Addmission</h1>
+
+<div class="container">
+  <table class="table table-dark fa-border-all">
+    <thead>
+      <tr>
+        <th scope="col">Serial</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">phone</th>
+        <th scope="col">DepartMent</th>
+        <th scope="col">SSC GPA</th>
+        <th scope="col">HSC GPA</th>
+        <th scope="col">Approval</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for pay in payment_done %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{pay.user.name}}</td>
+        <td>{{pay.user.email}}</td>
+        <td>{{pay.user.phone}}</td>
+        <td>{{pay.user.departMent}}</td>
+        <td>{{pay.user.ssc_gpa}}</td>
+        <td>{{pay.user.hsc_gpa}}</td>
+        <td>
+          <a href="{% url 'approve_register' pay.id %}" class="btn btn-info"
+            >Approve</a
+          >
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock content %}

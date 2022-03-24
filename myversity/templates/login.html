@@ -6,13 +6,38 @@
 
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/login.css' %}" />
-
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <li
+    {%
+    if
+    message.tags
+    %}
+    class="bg-{{ message.tags }} p-4 text-center"
+    {%
+    endif
+    %}
+  >
+    {{ message }}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
 <div class="container">
   <section id="content">
-    <form action="">
+    <form action="" method="POST">
+      {% csrf_token %}
       <h1>Login Form</h1>
       <div>
-        <input type="number" placeholder="Id No" required="" id="id_no" />
+        <input
+          type="email"
+          placeholder="email"
+          required=""
+          id="email"
+          name="email"
+          required
+        />
       </div>
       <div>
         <input
@@ -20,6 +45,7 @@
           placeholder="Password"
           required=""
           id="password"
+          name="password"
         />
       </div>
       <div>
