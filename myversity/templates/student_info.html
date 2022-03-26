@@ -1,0 +1,149 @@
+{% extends 'base.html' %} <br />
+
+{% block title %}Online Registration{% endblock title %} <br />
+{% load static %} <br />
+{% block content %}
+
+<style>
+  #id_d_o_birth {
+    padding: 7px;
+    display: block;
+
+    border-radius: 4px;
+    border: none;
+  }
+
+  input[type="date"] {
+    max-width: 500px;
+  }
+  .cancel {
+    margin-right: 30rem;
+  }
+</style>
+
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />]
+<link rel="stylesheet" href="{% static 'css/stuinfo.css' %}" />
+{% for message in messages %}
+<div
+  class="alert alert-{{ message.tags }} mb-0 alert-dismissible fade show"
+  role="alert"
+>
+  <strong>{{ message }}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %} {% if form.errors %}
+<!--error-->
+{% for field in form %}
+<!--error-->
+{% for error in field.errors %}
+<div class="alert alert-danger">
+  <strong>{{ error|escape }}</strong>
+</div>
+{% endfor %} {% endfor %} {% endif %}
+
+<form
+  action=""
+  class="mainform"
+  method="post"
+  enctype="multipart/form-data"
+  novalidate
+>
+  {% csrf_token %}
+  <div class="container">
+    <div class="row basicinfo" id="basicinfo">
+      <h1 class="font-weight-bold">Basic Info</h1>
+      <p>Admission For Graduate Programms</p>
+      <hr />
+      <div class="col-lg-6">
+        <label>{{form.departMent.label_tag}}</label>
+        {{form.departMent}}
+        <label>{{form.father_name.label_tag}}</label>
+        {{form.father_name}}
+        <label>{{form.mother_name.label_tag}}</label>
+        {{form.mother_name}}
+        <label>{{form.maritial_status.label_tag}}</label>
+        {{form.maritial_status}}
+        <label>{{form.blood_Group.label_tag}}</label>
+        {{form.blood_Group}}
+      </div>
+      <div class="col-lg-6">
+        <label>{{form.national_id.label_tag}}</label>
+        {{form.national_id}}
+        <label>{{form.d_o_birth.label_tag}}</label>
+        {{form.d_o_birth}}
+        <label>{{form.gender.label_tag}}</label>
+        {{form.gender}}
+        <label>{{form.religion.label_tag}}</label>
+        {{form.religion}}
+        <label>{{form.nationality.label_tag}}</label>
+        {{form.nationality}}
+      </div>
+    </div>
+    <div class="row resinfo" id="resinfo">
+      <h1>Resedential Info</h1>
+      <p>Admission For Graduate Programms</p>
+      <div class="col-lg-6">
+        <label>{{form.guardians_name.label_tag}}</label>
+        {{form.guardians_name}}
+        <label>{{form.permanent_address.label_tag}}</label>
+        {{form.permanent_address}}
+      </div>
+      <div class="col-lg-6">
+        <label>{{form.guardians_con_no.label_tag}}</label>
+        {{form.guardians_con_no}}
+        <label>{{form.present_address.label_tag}}</label>
+        {{form.present_address}}
+      </div>
+    </div>
+    <div class="row resultinfo" id="resultinfo">
+      <h1 class="font-weight-bold">Result Info</h1>
+      <p>Admission For Graduate Programms</p>
+      <hr />
+      <div class="col-lg-6">
+        <h1>SSC Info</h1>
+        <label>{{form.registration_no_of_ssc.label_tag}}</label>
+        {{form.registration_no_of_ssc}}
+        <label>{{form.name_of_instituin_ssc.label_tag}}</label>
+        {{form.name_of_instituin_ssc}}
+        <label>{{form.roll_ssc.label_tag}}</label>
+        {{form.roll_ssc}}
+        <label>{{form.group_ssc.label_tag}}</label>
+        {{form.group_ssc}}
+        <label>{{form.year_ssc.label_tag}}</label>
+        {{form.year_ssc}}
+        <label>{{form.Board_ssc.label_tag}}</label>
+        {{form.Board_ssc}}
+        <label>{{form.gpa_ssc.label_tag}}</label>
+        {{form.gpa_ssc}}
+        <label>{{form.student_Img.label_tag}}</label>
+        {{form.student_Img}}
+      </div>
+      <div class="col-lg-6">
+        <h1>HSC Info</h1>
+        <label>{{form.registration_no_of_hsc.label_tag}}</label>
+        {{form.registration_no_of_hsc}}
+        <label>{{form.name_of_instituin_hsc.label_tag}}</label>
+        {{form.name_of_instituin_hsc}}
+        <label>{{form.roll_hsc.label_tag}}</label>
+        {{form.roll_hsc}}
+        <label>{{form.group_hsc.label_tag}}</label>
+        {{form.group_hsc}}
+        <label>{{form.year_hsc.label_tag}}</label>
+        {{form.year_hsc}}
+        <label>{{form.Board_hsc.label_tag}}</label>
+        {{form.Board_hsc}}
+        <label>{{form.gpa_hsc.label_tag}}</label>
+        {{form.gpa_hsc}}
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button type="submit" class="btn btn-outline-danger">Register</button>
+  </div>
+</form>
+
+<script src="{% static 'js/stuinfo.js' %}"></script>
+
+{% endblock content %}

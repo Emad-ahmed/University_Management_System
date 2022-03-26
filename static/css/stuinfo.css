@@ -1,0 +1,39 @@
+.basicinfo {
+    background: #18454A;
+    max-width: 900px;
+    margin: auto;
+    padding: 4rem;
+    color: white;
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    color: rgb(194, 194, 194);
+}
+
+.resinfo {
+    background: #18454A;
+    max-width: 900px;
+    margin: auto;
+    padding: 4rem;
+    color: white;
+}
+
+label {
+    color: white;
+}
+
+hr {
+    background: red;
+}
+
+.resultinfo {
+    background: #18454A;
+    max-width: 900px;
+    margin: auto;
+    padding: 4rem;
+    color: white;
+}
