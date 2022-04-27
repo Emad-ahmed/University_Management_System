@@ -3,7 +3,7 @@ from pyexpat import model
 import random
 from statistics import mode
 from django.db import models
-from myversity.models import LoginSite
+from myversity.models import LoginSite, Registration
 
 
 choice_department = (
@@ -56,7 +56,8 @@ Year = (
 
 
 class Student_All_Info(models.Model):
-    user = models.ForeignKey(LoginSite, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        Registration, on_delete=models.CASCADE, null=True, blank=True)
     departMent = models.CharField(
         max_length=200, choices=choice_department, default="CSE")
     father_name = models.CharField(max_length=100)

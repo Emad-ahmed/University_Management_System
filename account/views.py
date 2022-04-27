@@ -1,3 +1,4 @@
+import imp
 import django
 from django.shortcuts import redirect, render
 from django.views import View
@@ -12,6 +13,8 @@ import string
 import string
 import random
 
+from myversity.models.studentallinfo import Student_All_Info
+
 length = 5
 
 
@@ -22,7 +25,9 @@ randomstr = ''.join(random.choices(
 
 class HomeAccount(View):
     def get(self, request):
-        return render(request, 'index.html')
+        myinfo = Student_All_Info.objects.all()
+        print(myinfo)
+        return render(request, 'index.html', {'info': myinfo})
 
 
 class Addmission_Approve_View(View):
@@ -37,11 +42,12 @@ class Approve_RegisterView(View):
         payment_done = Payment_Done.objects.all()
         myuser = Payment_Done.objects.get(id=id)
         email = myuser.user.email
-        length = 7
 
+        length = 7
         randomstr = ''.join(random.choices(
             string.ascii_letters+string.digits, k=length))
         password = randomstr
+
         loginuser = LoginSite(email=email, password=password)
         loginuser.save()
 

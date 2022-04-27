@@ -14,3 +14,6 @@ class LoginSite(models.Model):
             return LoginSite.objects.get(email=email)
         except:
             return False
+    
+
+    

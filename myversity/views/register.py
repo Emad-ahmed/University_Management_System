@@ -27,7 +27,6 @@ class RegisterView(View):
             if fm.is_valid():
                 myemail = fm.cleaned_data["email"]
                 fm.save()
-
                 messages.success(request, 'Profile details updated.')
             myuser = Registration.objects.get(email=myemail)
 

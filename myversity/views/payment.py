@@ -20,7 +20,7 @@ class PaymentView(View):
         my_ref = request.POST.get("ref_number")
         myuser = Registration.objects.get(id=id)
         myemail = myuser.email
-        print(my_ref, myuser.referece_number)
+
         if my_ref == myuser.referece_number:
             payment = 500
             mypayment = Payment_Done(user=myuser, payment_amount=payment)
