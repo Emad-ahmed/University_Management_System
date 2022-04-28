@@ -5,6 +5,7 @@ from django.views import View
 from django.http import HttpResponse
 from myversity.models.payment import Payment_Done
 from myversity.models.loginregister import LoginSite
+from myversity.forms import StudentAllForm
 from django.conf import settings
 # Create your views here.
 from django.core.mail import send_mail
@@ -25,9 +26,13 @@ randomstr = ''.join(random.choices(
 
 class HomeAccount(View):
     def get(self, request):
-        myinfo = Student_All_Info.objects.all()
-        print(myinfo)
-        return render(request, 'index.html', {'info': myinfo})
+        account = request.session.get("account")
+        if account:
+            myinfo = Student_All_Info.objects.all()
+            print(myinfo)
+            return render(request, 'addmission_accept.html', {'info': myinfo})
+        else:
+            return redirect("loginview/")
 
 
 class Addmission_Approve_View(View):
@@ -60,3 +65,18 @@ class Approve_RegisterView(View):
         myuser.delete()
         print(payment_done)
         return redirect("addmission_approve")
+
+
+class UpdateAdmission(View):
+    def get(self, request, id):
+        studentinfo = Student_All_Info.objects.get(id=id)
+        form = StudentAllForm(instance=studentinfo)
+        return render(request, 'show_details_addmission.html', {'form': form})
+
+    def post(self, request, id):
+        studentinfo = Student_All_Info.objects.get(id=id)
+        form = StudentAllForm(request.POST, request.FILES,
+                              instance=studentinfo)
+        if form.is_valid():
+            form.save()
+        return render(request, 'show_details_addmission.html', {'form': form})

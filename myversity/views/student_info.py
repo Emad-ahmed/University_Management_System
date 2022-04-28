@@ -2,7 +2,7 @@ import email
 from django.shortcuts import render, redirect, HttpResponseRedirect
 
 from django.contrib.auth.hashers import check_password
-from myversity.models import Student_All_Info, LoginSite
+from myversity.models import Student_All_Info, Registration
 from myversity.forms import StudentAllForm
 from django.views import View
 from django.contrib import messages
@@ -15,7 +15,7 @@ class StudentInfo(View):
 
     def post(self, request):
         student = request.session.get("email")
-        myuser = LoginSite.objects.get(email=student)
+        myuser = Registration.objects.get(email=student)
         fm = StudentAllForm(request.POST, request.FILES)
         if fm.is_valid():
             obj = fm.save(commit=False)

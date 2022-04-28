@@ -1,0 +1,41 @@
+{% extends 'base_account.html' %} <br />
+{% block title %}Approve Addmission{% endblock title %} <br />
+{% block content %}
+<link rel="stylesheet" href="css/addmission.css" />
+
+<style>
+  .card img {
+    max-width: 400px;
+    height: 200px;
+    object-fit: cover;
+  }
+  .btn {
+    display: block;
+  }
+</style>
+
+<h1 class="text-center mb-4 mt-4">Addmission Info</h1>
+
+<div class="container">
+  <div class="row">
+    {% for allinfo in info %}
+    <div class="col-lg-4">
+      <div class="card" style="width: 22rem">
+        <img src="{{allinfo.student_Img.url}}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">Name: <b>{{allinfo.user.name}}</b></h5>
+          <p>Programme: <b>{{allinfo.departMent}}</b></p>
+          <p>Email: <b>{{allinfo.user.email}}</b></p>
+          <p>Phone: <b>0{{allinfo.user.phone}}</b></p>
+          <a
+            href="{% url 'updateaddmission' allinfo.id  %}"
+            class="btn btn-primary"
+            >Show Details</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

@@ -1,5 +1,5 @@
 from django.urls import path
-from account.views import HomeAccount, Addmission_Approve_View, Approve_RegisterView
+from account.views import HomeAccount, Addmission_Approve_View, Approve_RegisterView, UpdateAdmission
 
 
 urlpatterns = [
@@ -8,4 +8,7 @@ urlpatterns = [
          name="addmission_approve"),
     path("approve_register/<int:id>/", Approve_RegisterView.as_view(),
          name="approve_register"),
+    path("updateaddmission/<int:id>/", UpdateAdmission.as_view(),
+         name="updateaddmission"),
+
 ]

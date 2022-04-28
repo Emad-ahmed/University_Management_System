@@ -31,7 +31,8 @@ class Login(View):
             else:
                 messages.warning(request, "Email and Password Invalid!")
         elif(email == "account34567@gmail.com" and password == "account234"):
-            return redirect("/account")
+            request.session['account'] = "account34567@gmail.com"
+            return redirect("/account/")
 
         else:
             messages.warning(request, "Email and Password Invalid!")
