@@ -10,6 +10,7 @@ from django.contrib import messages
 
 class StudentInfo(View):
     def get(self, request):
+        n = request.session.get("email")
         fm = StudentAllForm()
         return render(request, 'student_info.html', {'form': fm})
 
@@ -21,6 +22,6 @@ class StudentInfo(View):
             obj = fm.save(commit=False)
             obj.user = myuser
             obj.save()
-            request.session['student'] = myuser.id
+            request.session['student'] = myuser.email
             return redirect('home')
         return render(request, 'student_info.html', {'form': fm})

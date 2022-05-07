@@ -7,14 +7,13 @@ from myversity.models.payment import Payment_Done
 from myversity.models.loginregister import LoginSite
 from myversity.forms import StudentAllForm
 from django.conf import settings
-# Create your views here.
 from django.core.mail import send_mail
 import random
 import string
 import string
 import random
-
 from myversity.models.studentallinfo import Student_All_Info
+from django.contrib import messages
 
 length = 5
 
@@ -71,7 +70,7 @@ class UpdateAdmission(View):
     def get(self, request, id):
         studentinfo = Student_All_Info.objects.get(id=id)
         form = StudentAllForm(instance=studentinfo)
-        return render(request, 'show_details_addmission.html', {'form': form})
+        return render(request, 'show_details_addmission.html', {'form': form, 'id': id})
 
     def post(self, request, id):
         studentinfo = Student_All_Info.objects.get(id=id)
@@ -79,4 +78,16 @@ class UpdateAdmission(View):
                               instance=studentinfo)
         if form.is_valid():
             form.save()
+            messages.success(request, "Successfully Saved")
+            return redirect("/account")
+        else:
+            return HttpResponse("Not")
+
         return render(request, 'show_details_addmission.html', {'form': form})
+
+
+def deleteadmission(request, id):
+    studentinfo = Student_All_Info.objects.get(id=id)
+    studentinfo.delete()
+
+    return redirect("/account")

@@ -18,6 +18,18 @@
   .cancel {
     margin-right: 30rem;
   }
+
+  .reject {
+    position: absolute;
+    background: red;
+    padding: 6px;
+    text-decoration: none;
+    color: white;
+    top: 149rem;
+    left: 64rem;
+    width: 7rem;
+    padding-left: 1.8rem;
+  }
 </style>
 
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />]
@@ -139,9 +151,13 @@
     </div>
   </div>
   <div class="text-center">
-    <button type="submit" class="btn btn-outline-danger">Register</button>
+    <button type="submit" class="btn btn-outline-danger" name="Accept">
+      Accept
+    </button>
   </div>
 </form>
+
+<a href="{% url 'deleteadmission' id %}" class="reject">Reject</a>
 
 <script src="{% static 'js/stuinfo.js' %}"></script>
 

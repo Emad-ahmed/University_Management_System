@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib.auth.hashers import check_password
-from myversity.models import LoginSite, Student_All_Info
+from myversity.models import LoginSite, Student_All_Info, Registration
 from django.views import View
 from django.contrib import messages
 
@@ -15,15 +15,19 @@ class Login(View):
     def post(self, request):
         email = request.POST.get('email')
         password = request.POST.get('password')
-        student = LoginSite.get_student_by_email(email)
+        student = Registration.get_student_by_email(email)
+
         try:
             mystudent = Student_All_Info.objects.get(user=student)
+
         except:
             mystudent = None
+        print(mystudent)
         if student:
-            if student.password == password:
+            if student.email == email:
                 if mystudent:
-                    request.session['student'] = student.id
+                    print(mystudent.user)
+                    request.session['mystu'] = mystudent.user.email
                     return redirect("home")
                 else:
                     request.session['email'] = email
