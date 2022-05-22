@@ -1,6 +1,6 @@
 from distutils.log import Log
 from django.contrib import admin
-from myversity.models import Registration, Payment_Done, LoginSite, Student_All_Info
+from myversity.models import Registration, Payment_Done, LoginSite, Student_All_Info, News
 
 # Register your models here.
 
@@ -22,4 +22,9 @@ class LoginSiteDisplay(admin.ModelAdmin):
 
 @admin.register(Student_All_Info)
 class Student_All_InfoDisplay(admin.ModelAdmin):
+    list_display = ["id"]
+
+
+@admin.register(News)
+class NewsDisplay(admin.ModelAdmin):
     list_display = ["id"]
