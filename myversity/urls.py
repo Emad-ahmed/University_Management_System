@@ -1,9 +1,11 @@
 from django.urls import path
-from myversity.views import HomeView, RegisterView, PaymentView, BBAVIEW, Login, logout, StudentInfo, AboutView, ScholarView, AllteachInfo, CSEVIEW, EEEVIEW
+from myversity.views import HomeView, RegisterView, PaymentView, BBAVIEW, Login, logout, StudentInfo, AboutView, ScholarView, AllteachInfo, CSEVIEW, EEEVIEW, NewsView, EventsView
 
 
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),
+    path("news/<int:id>/", NewsView.as_view(), name="news"),
+    path("events/<int:id>/", EventsView.as_view(), name="events"),
     path("register/", RegisterView.as_view(), name="register"),
     path("payment/<int:id>", PaymentView.as_view(), name="payment"),
     path("bba/", BBAVIEW.as_view(), name="bba"),

@@ -19,4 +19,24 @@ class HomeView(View):
         if myinfo:
             return render(request, 'home.html', alldata)
         else:
-            return redirect("loginview")
+            alldata = {
+
+                'allnews': mynews,
+                'myevents': myevents,
+            }
+            return render(request, 'home.html', alldata)
+
+
+class NewsView(View):
+    def get(self, request, id):
+        student = request.session.get("mystu")
+        fullnews = News.objects.get(id=id)
+        return render(request, 'fullnews.html', {'student': student, 'fullnews': fullnews})
+
+
+class EventsView(View):
+    def get(self, request, id):
+        student = request.session.get("mystu")
+        fullevents = Events.objects.get(id=id)
+        print(fullevents.title)
+        return render(request, 'eventsfull.html', {'student': student, 'fullevents': fullevents})

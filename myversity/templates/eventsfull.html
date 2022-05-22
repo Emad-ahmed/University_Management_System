@@ -1,0 +1,23 @@
+{% extends 'base.html' %} <br />
+
+{% block title %}Events{% endblock title %} <br />
+
+{% block content %} <br />
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+<div class="container mt-2 teachjum">
+  <div class="text-center">
+    <h3 class="mb-4">{{fullevents.title}}</h3>
+    <img
+      src="{{fullevents.eventsimg.url}}"
+      alt=""
+      class="mb-5 img-thumbnail img-responsive"
+    />
+    <p class="mt-2">{{fullevents.alldes}}</p>
+  </div>
+</div>
+
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock content %}

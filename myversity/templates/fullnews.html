@@ -1,0 +1,23 @@
+{% extends 'base.html' %} <br />
+
+{% block title %}Full News{% endblock title %} <br />
+
+{% block content %} <br />
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+<div class="container mt-2 teachjum">
+  <div class="text-center">
+    <h3 class="mb-4">{{fullnews.title}}</h3>
+    <img
+      src="{{fullnews.news_phot.url}}"
+      alt=""
+      class="mb-5 img-thumbnail img-responsive"
+    />
+    <p class="mt-2">{{fullnews.allnmews}}</p>
+  </div>
+</div>
+
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock content %}

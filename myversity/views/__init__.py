@@ -1,4 +1,4 @@
-from myversity.views.home import HomeView
+from myversity.views.home import HomeView, NewsView, EventsView
 from myversity.views.register import RegisterView
 from myversity.views.payment import PaymentView
 from myversity.views.faculty import BBAVIEW, AllteachInfo, EEEVIEW, CSEVIEW

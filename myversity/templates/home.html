@@ -89,13 +89,15 @@
   <h1 class="text-center mb-5 tih1">Latest News</h1>
   <div class="row">
     {% for news in allnews %}
-    <div class="col-lg-4">
+    <div class="col-lg-4 mb-4">
       <div class="card" style="width: 20rem">
         <img src="{{news.news_phot.url}}" class="card-img-top" alt="..." />
         <div class="card-body">
           <h5 class="card-title">{{news.title}}</h5>
           <p class="card-text">{{news.allnmews|cutword}}</p>
-          <a href="#" class="btn btn-primary">Read More</a>
+          <a href="{% url 'news' news.id %}" class="btn btn-primary"
+            >Read More</a
+          >
         </div>
       </div>
     </div>
@@ -106,13 +108,15 @@
 <div class="container mt-5">
   <h1 class="text-center mb-5 tih1">Events</h1>
   <div class="row">
-    {% for events in myevents %}
+    {% for event in myevents %}
     <div class="col-lg-4">
       <div class="card" style="width: 20rem; height: 20rem">
-        <img src="{{events.eventsimg.url}}" class="card-img-top" alt="..." />
+        <img src="{{event.eventsimg.url}}" class="card-img-top" alt="..." />
         <div class="card-body">
-          <h5 class="card-title">{{events.title}}</h5>
-          <a href="#" class="btn btn-primary mt-3">See More</a>
+          <h5 class="card-title">{{event.title}}</h5>
+          <a href="{% url 'events' event.id %}" class="btn btn-primary mt-3"
+            >See More</a
+          >
         </div>
       </div>
     </div>
