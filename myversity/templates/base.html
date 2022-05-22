@@ -36,123 +36,160 @@
       <img src="{% static 'img/lu.png' %}" alt="" />
       <a href="#" class="Navbar-brand mt-3">Leading University</a>
     </div>
-    <nav>
-      <input type="checkbox" id="check" />
-      <label for="check" class="hamberger-btn">
-        <i class="fas fa-bars"></i>
-      </label>
-      <ul>
-        <li><a href="/" style="color: white">Home</a></li>
-        <div class="dropdown" style="margin-top: 20px">
-          <a href="#" class="dropbtn dropdown-toggle" style="color: white"
-            >About Us</a
-          >
-          <div class="dropdown-content mt-2">
-            <a href="calculator.htm" style="color: white"
-              >Admission and Registration Policies</a
-            >
-            <hr class="bg-dark" />
-            <a href="" style="color: white">Scholarship and Aid</a>
-            <hr class="bg-dark" />
-            <a href="dictionary.htm" style="color: white">Tuition Fees</a>
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white">Academic Programs</a>
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white">Academic Policy</a>
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white">FAQ</a>
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white">Brochure/Flyer</a>
 
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white">Contact</a>
-          </div>
-        </div>
-        <li><a href="#" style="color: white">IQAC</a></li>
-        {% if not student %}
-        <li>
-          <a href="{% url 'register' %}" style="color: white"
-            >Online Registration</a
-          >
-        </li>
-        {% endif %}
+    <nav class="navbar navbar-expand-lg bg-dark">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <div class="dropdown" style="margin-top: 0.5rem">
+              <a href="#" class="dropbtn dropdown-toggle" style="color: white"
+                >Admssion</a
+              >
+              <div class="dropdown-content mt-2">
+                <a href="{% url 'about' %}" style="color: white"
+                  >Admission and Registration Policies</a
+                >
+                <hr class="bg-dark" />
+                <a href="{% url 'scholar' %}" style="color: white"
+                  >Scholarship and Aid</a
+                >
+                <hr class="bg-dark" />
+                <a href="dictionary.htm" style="color: white">Tuition Fees</a>
+                <hr class="bg-dark" />
+                <a href="scientific.htm" style="color: white"
+                  >Academic Programs</a
+                >
+                <hr class="bg-dark" />
+                <a href="scientific.htm" style="color: white"
+                  >Academic Policy</a
+                >
+                <hr class="bg-dark" />
+                <a href="scientific.htm" style="color: white">FAQ</a>
+                <hr class="bg-dark" />
+                <a href="scientific.htm" style="color: white">Brochure/Flyer</a>
 
-        <div class="dropdown" style="margin-top: 20px">
-          <a href="#" class="dropbtn dropdown-toggle" style="color: white"
-            >Faculty Member</a
-          >
-          <div class="dropdown-content mt-2">
-            <a href="{% url 'bba' %}" style="color: white"
-              >Department of Business Administration</a
-            >
-            <hr class="bg-dark" />
-            <a href="tictoe.htm" style="color: white">Department of CSE</a>
-            <hr class="bg-dark" />
-            <a href="dictionary.htm" style="color: white"
-              >Department of English</a
-            >
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white">Department of EEE</a>
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white"
-              >Department of Civil Engineering</a
-            >
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white"
-              >Department of Architecture</a
-            >
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white"
-              >Department of Architecture</a
-            >
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white"
-              >Department of Architecture</a
-            >
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white">Department of Law</a>
-          </div>
-        </div>
-        <div class="dropdown" style="margin-top: 20px">
-          <a href="#" class="dropbtn dropdown-toggle" style="color: white"
-            >Student Portal</a
-          >
-          <div class="dropdown-content mt-2">
-            {% if student %}
-            <a href="calculator.htm" style="color: white">Result</a>
-            <hr class="bg-dark" />
-            <a href="tictoe.htm" style="color: white">Semester Registration</a>
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white">Change Password</a>
-
-            <hr class="bg-dark" />
+                <hr class="bg-dark" />
+                <a href="scientific.htm" style="color: white">Contact</a>
+              </div>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">IQAC</a>
+            </li>
+            {% if not student %}
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="{% url 'register' %}"
+                >Online Registration</a
+              >
+            </li>
             {% endif %}
-            <a href="dictionary.htm" style="color: white"
-              >Guide line for Tuition Fees Payment System</a
-            >
+            <div class="dropdown" style="margin-top: 0.5rem">
+              <a href="#" class="dropbtn dropdown-toggle" style="color: black"
+                >Faculty Member</a
+              >
+              <div class="dropdown-content mt-2">
+                <a href="{% url 'bba' %}" style="color: white"
+                  >Department of Business Administration</a
+                >
+                <hr class="bg-dark" />
+                <a href="{% url 'cse' %}" style="color: white"
+                  >Department of CSE</a
+                >
+                <hr class="bg-dark" />
+                <a href="dictionary.htm" style="color: white"
+                  >Department of English</a
+                >
+                <hr class="bg-dark" />
+                <a href="{% url 'eee' %}" style="color: white"
+                  >Department of EEE</a
+                >
+                <hr class="bg-dark" />
+                <a href="scientific.htm" style="color: white"
+                  >Department of Civil Engineering</a
+                >
+                <hr class="bg-dark" />
+                <a href="scientific.htm" style="color: white"
+                  >Department of Architecture</a
+                >
+                <hr class="bg-dark" />
+                <a href="scientific.htm" style="color: white"
+                  >Department of Architecture</a
+                >
+                <hr class="bg-dark" />
+                <a href="scientific.htm" style="color: white"
+                  >Department of Architecture</a
+                >
+                <hr class="bg-dark" />
+                <a href="scientific.htm" style="color: white"
+                  >Department of Law</a
+                >
+              </div>
+            </div>
+            <div class="dropdown" style="margin-top: 0.5rem">
+              <a href="#" class="dropbtn dropdown-toggle" style="color: white"
+                >Student Portal</a
+              >
+              <div class="dropdown-content mt-2">
+                {% if student %}
+                <a href="calculator.htm" style="color: white">Result</a>
+                <hr class="bg-dark" />
+                <a href="tictoe.htm" style="color: white"
+                  >Semester Registration</a
+                >
+                <hr class="bg-dark" />
+                <a href="scientific.htm" style="color: white"
+                  >Change Password</a
+                >
 
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white">Class Routine</a>
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white"
-              >Programmer’s Rank-list</a
-            >
-            <hr class="bg-dark" />
-            <a href="scientific.htm" style="color: white">Transport Service</a>
-          </div>
+                <hr class="bg-dark" />
+                {% endif %}
+                <a href="dictionary.htm" style="color: white"
+                  >Guide line for Tuition Fees Payment System</a
+                >
+
+                <hr class="bg-dark" />
+                <a href="scientific.htm" style="color: white">Class Routine</a>
+                <hr class="bg-dark" />
+                <a href="scientific.htm" style="color: white"
+                  >Programmer’s Rank-list</a
+                >
+                <hr class="bg-dark" />
+                <a href="scientific.htm" style="color: white"
+                  >Transport Service</a
+                >
+              </div>
+            </div>
+            {% if not student %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'loginview' %}">Login</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% endif %}
+          </ul>
         </div>
-
-        {% if not student %}
-        <li><a href="{% url 'loginview' %}" style="color: white">Login</a></li>
-        {% else %}
-        <li><a href="{% url 'logout' %}" style="color: white">Logout</a></li>
-        {% endif %}
-      </ul>
+      </div>
     </nav>
 
-    {% block content %}{% endblock content %} <br />
-
-    {% comment %} Footer {% endcomment %}
+    {% block content %}{% endblock content %}
 
     <link
       href="https://use.fontawesome.com/releases/v5.0.1/css/all.css"
@@ -162,19 +199,13 @@
     <footer>
       <div class="row-footer">
         <div class="site-logo">
-          <span>EmadLu</span>
+          <span>Lu</span>
           <ul class="main-nav">
             <li class="item1">
-              <span>E</span>
+              <span>L</span>
             </li>
             <li class="item2">
-              <span>M</span>
-            </li>
-            <li class="item3">
-              <span>A</span>
-            </li>
-            <li class="item4">
-              <span>D</span>
+              <span>U</span>
             </li>
           </ul>
         </div>
@@ -240,7 +271,7 @@
         <div class="right-dis">
           Made with
           <i style="color: red; font-size: 12px" class="fas fa-heart"></i> by
-          <strong>Emad Ahmed</strong>
+          <strong>Tonne, Mahbuba & Sami</strong>
         </div>
         <div class="left-dis">
           Copyright <strong>CodePy</strong> © 2022. All the rights are reserved.

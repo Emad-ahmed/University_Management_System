@@ -10,6 +10,7 @@
 
 body {
     font-family: "Montserrat", sans-serif;
+    background: #EEEEEE;
 }
 
 .topbar {
@@ -27,105 +28,20 @@ body {
     height: 6rem;
 }
 
-
-/* Start Navbar Design */
-
-nav {
-    background: #00203FFF;
-    max-height: 60px;
-    max-width: 100%;
+nav a {
+    color: white !important;
     font-family: 'Raleway', sans-serif;
 }
 
-label.logo {
-    color: cornsilk;
-    font-size: 35px;
-    font-weight: bold;
-    line-height: 60px;
-    margin-left: 40px;
+.carousel {
+    margin-top: 0;
 }
 
-nav ul {
-    margin: auto;
-}
 
-nav ul li {
-    display: inline-block;
-    line-height: 60px;
-    margin: 0px 20px;
-}
-
-nav ul li a {
-    color: white;
-    font-size: 1rem;
-    font-weight: bolder;
-    text-decoration: none;
-    color: black;
-}
-
-a.active,
-a:hover {
-    color: #44b3e2;
-    color: rgb(53, 52, 52);
-}
-
-.hamberger-btn {
-    font-size: 35px;
-    color: white;
-    float: right;
-    margin-right: 30px;
-    line-height: 60px;
-    cursor: pointer;
-    display: none;
-}
-
-#check {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    section {
-        background-position: top right;
-    }
-    label.logo {
-        font-size: 30px;
-        margin-left: 20px;
-    }
-    nav ul li a {
-        color: white;
-        font-size: 16px;
-    }
-    .hamberger-btn {
-        display: block;
-    }
-    ul {
-        position: relative;
-        width: 100vw;
-        height: 100vh;
-        background: linear-gradient( 0deg, rgba(34, 193, 195, 1) 0%, rgba(45, 42, 145, 1) 97%);
-        top: 0px;
-        right: 100%;
-        text-align: center;
-        transition: all 0.5s;
-    }
-    nav ul li {
-        display: block;
-    }
-    a:hover {
-        background: linear-gradient( 93deg, rgba(94, 129, 207, 1) 16%, rgba(94, 161, 187, 1) 55%);
-    }
-    #check:checked~ul {
-        right: -10px;
-        z-index: 100;
-    }
-}
+/* Start Navbar Design */
 
 .dropdown-menu {
     background: url("img/Royal Blue.jpg");
-}
-
-.dropdown-menu a {
-    font-size: 1rem;
 }
 
 .dropdown-menu a:hover {
@@ -149,9 +65,7 @@ a:hover {
 
 .dropbtn {
     color: black;
-    font-weight: bold;
     padding: 10px;
-    font-size: 1rem;
     text-decoration: none;
     font-family: 'Raleway', sans-serif;
 }
@@ -210,6 +124,65 @@ a:hover {
     border-bottom: 1px solid tomato;
     text-decoration: none;
     color: tomato;
+}
+
+.card {
+    border: 1px solid #000000;
+    border-radius: 10px;
+    box-shadow: 3px 1px 1px 1px;
+    height: 27rem;
+}
+
+.card img {
+    border-radius: 10px;
+}
+
+.card .btn {
+    background: #000;
+    border-radius: 10px;
+}
+
+.card .btn:hover {
+    background: tomato;
+}
+
+.card:hover {
+    box-shadow: 3px 3px 3px 3px;
+}
+
+.cardfaci img {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    margin: auto;
+}
+
+.cardfaci {
+    padding: 8px;
+}
+
+.cardteacher img {
+    height: 14rem;
+}
+
+.tih1 {
+    width: 25rem;
+    margin: auto;
+    border-bottom: 1px solid black;
+    padding-bottom: 6px;
+}
+
+.myimgteach img {
+    width: 10rem;
+    margin-bottom: 3.5rem;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+
+.teachjum {
+    background: white;
+    padding: 4rem;
+    border-radius: 2rem;
 }
 
 

@@ -1,0 +1,38 @@
+{% extends 'base.html' %} <br />
+
+{% block title %}BBA{% endblock title %} <br />
+
+{% block content %} <br />
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+<div class="container mt-2 teachjum">
+  <div class="row">
+    <div class="col-lg-3 myimgteach">
+      <img src="{{tecahinfo.eventsimg.url}}" alt="" />
+    </div>
+    <div class="col-lg-5">
+      <h5>{{tecahinfo.name}}</h5>
+      <p>{{tecahinfo.postion}}</p>
+      <p>{{tecahinfo.department}}</p>
+    </div>
+    <div class="col-lg-4">
+      <h4>Contact Information</h4>
+      <p>Cell-Phone: {{tecahinfo.cell_number}}</p>
+      <p>Email: {{tecahinfo.email}}</p>
+    </div>
+  </div>
+  <hr />
+  <div>
+    <h3>Biography</h3>
+    <p>{{tecahinfo.biography}}</p>
+  </div>
+  <div>
+    <h3>Area of Study</h3>
+    <p>{{tecahinfo.area_of_study}}</p>
+  </div>
+</div>
+
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock content %}

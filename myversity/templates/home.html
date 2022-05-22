@@ -4,6 +4,8 @@
 
 {% block content %} <br />
 
+{% load news_load %} <br />
+
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 
@@ -83,23 +85,99 @@
   </button>
 </div>
 
-<div class="container">
-  <h1>Latest News</h1>
+<div class="container mt-5">
+  <h1 class="text-center mb-5 tih1">Latest News</h1>
+  <div class="row">
+    {% for news in allnews %}
+    <div class="col-lg-4">
+      <div class="card" style="width: 20rem">
+        <img src="{{news.news_phot.url}}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{news.title}}</h5>
+          <p class="card-text">{{news.allnmews|cutword}}</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h1 class="text-center mb-5 tih1">Events</h1>
+  <div class="row">
+    {% for events in myevents %}
+    <div class="col-lg-4">
+      <div class="card" style="width: 20rem; height: 20rem">
+        <img src="{{events.eventsimg.url}}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{events.title}}</h5>
+          <a href="#" class="btn btn-primary mt-3">See More</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h1 class="text-center mb-5 tih1">Campus Facilities</h1>
   <div class="row">
     <div class="col-lg-4">
-      <div class="card" style="width: 18rem">
-        <img src="..." class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+      <div class="card cardfaci" style="width: 20rem; height: 20rem">
+        <img src="{% static 'img/wifi.jpg' %}" class="card-img-top" alt="..." />
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bolder">Free Wi-Fi Access</h5>
+          <p>
+            Students are given access to high speed internet all over the campus
+            through wifi.
           </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card cardfaci" style="width: 20rem; height: 20rem">
+        <img src="{% static 'img/lab.jpg' %}" class="card-img-top" alt="..." />
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bolder">Highly Equipped Labs</h5>
+          <p>
+            There are labs equipped with modern instruments in every relevant
+            department.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card cardfaci" style="width: 20rem; height: 20rem">
+        <img
+          src="{% static 'img/extra.jpg' %}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bolder">Extra Curricular Activities</h5>
+          <p>
+            Students can participate in various extra curricular activities
+            through various clubs.
+          </p>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<div class="container mt-5">
+  <h1 class="text-center mb-5 tih1">Campus Location</h1>
+
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.838098759185!2d91.80271791407853!3d24.86937858404973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3751015addbec3b7%3A0x9e87b7be58b5f67e!2z4Kay4Ka_4Kah4Ka_4KaCIOCmh-CmieCmqOCmv-CmreCmvuCmsOCnjeCmuOCmv-Cmn-Cmvw!5e0!3m2!1sbn!2sbd!4v1653230927165!5m2!1sbn!2sbd"
+    width="1100"
+    height="450"
+    style="border: 0"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
 </div>
 
 <script src="{% static 'js/home.js' %}"></script>

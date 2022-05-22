@@ -4,7 +4,7 @@ from statistics import mode
 from django.db import models
 
 
-class News(models.Model):
+class Events(models.Model):
     title = models.CharField(max_length=250)
-    allnmews = models.TextField()
-    news_phot = models.ImageField(upload_to='newsimages/')
+    alldes = models.TextField()
+    eventsimg = models.ImageField(upload_to='eventsimages/')
