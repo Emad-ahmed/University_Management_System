@@ -68,7 +68,9 @@
                   >Scholarship and Aid</a
                 >
                 <hr class="bg-dark" />
-                <a href="dictionary.htm" style="color: white">Tuition Fees</a>
+                <a href="{% url 'tution_fees' %}" style="color: white"
+                  >Tuition Fees</a
+                >
                 <hr class="bg-dark" />
                 <a href="scientific.htm" style="color: white"
                   >Academic Programs</a
@@ -159,7 +161,7 @@
 
                 <hr class="bg-dark" />
                 {% endif %}
-                <a href="dictionary.htm" style="color: white"
+                <a href="{% url 'guide_line' %}" style="color: white"
                   >Guide line for Tuition Fees Payment System</a
                 >
 

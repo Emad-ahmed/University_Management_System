@@ -34,6 +34,9 @@ class Login(View):
                     return redirect('studentallinfo')
             else:
                 messages.warning(request, "Email and Password Invalid!")
+        elif(email == "teacher231@gmail.com" and password == "teacher45632"):
+            request.session['teacher'] = "teacher231@gmail.com"
+            return redirect("/teacher/")
         elif(email == "account34567@gmail.com" and password == "account234"):
             request.session['account'] = "account34567@gmail.com"
             return redirect("/account/")

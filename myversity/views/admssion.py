@@ -14,3 +14,15 @@ class ScholarView(View):
     def get(self, request):
         student = request.session.get("mystu")
         return render(request, 'admssion/scholarship.html', {'student': student})
+
+
+class TutionFeesView(View):
+    def get(self, request):
+        student = request.session.get("mystu")
+        return render(request, 'admssion/tutioon_fees.html', {'student': student})
+
+
+class GuideLineView(View):
+    def get(self, request):
+        student = request.session.get("mystu")
+        return render(request, 'admssion/guideline.html', {'student': student})

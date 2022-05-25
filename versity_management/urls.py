@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("myversity.urls")),
     path("account/", include("account.urls")),
+    path("teacher/", include("teacherapp.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

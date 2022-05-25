@@ -1,0 +1,62 @@
+{% extends 'base.html' %} <br />
+
+{% block title %}Tution Fees{% endblock title %} <br />
+
+{% block content %} <br />
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/admission.css' %}" />
+
+<div class="container">
+  <h1 class="text-center">Tuition Fees</h1>
+  <h2 class="mb-5 text-center">Total Fees for Undergraduate program</h2>
+  <table class="table w-75" style="margin: auto">
+    <thead class="text-center">
+      <tr>
+        <th scope="col">Programs</th>
+        <th scope="col">Total Credit Hour</th>
+        <th scope="col">Total Fees Payable</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr>
+        <td>CSE</td>
+        <td>160</td>
+        <td>4,22,400</td>
+      </tr>
+      <tr>
+        <td>BBA</td>
+        <td>141</td>
+        <td>4,21,750</td>
+      </tr>
+      <tr>
+        <td>English</td>
+        <td>140</td>
+        <td>3,28,400</td>
+      </tr>
+      <tr>
+        <td>English</td>
+        <td>140</td>
+        <td>3,28,400</td>
+      </tr>
+      <tr>
+        <td>English</td>
+        <td>140</td>
+        <td>3,28,400</td>
+      </tr>
+      <tr>
+        <td>English</td>
+        <td>140</td>
+        <td>3,28,400</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- container -->
+<script src="{% static 'js/home.js' %}"></script>
+<script src="{% static 'js/login.js' %}"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+{% endblock content %}
