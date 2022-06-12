@@ -25,3 +25,6 @@ class Teacher(models.Model):
     biography = models.TextField()
     area_of_study = models.TextField()
     eventsimg = models.ImageField(upload_to='departnentimages/')
+
+    def __str__(self):
+        return self.name

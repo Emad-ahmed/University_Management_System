@@ -1,0 +1,104 @@
+{% extends 'base_teacher.html' %} <br />
+{% load static %} <br />
+{% block title %}Table{%endblock title %} <br />
+{% block content %}
+
+<style>
+  table {
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    border-right: 1px solid green;
+    border-left: 1px solid green;
+  }
+  thead {
+    top: 0;
+    position: sticky;
+    background: #000;
+    color: white;
+  }
+  th {
+    &:first-child {
+      position: sticky;
+      left: 0;
+    }
+  }
+
+  tbody tr,
+  thead tr {
+    position: relative;
+  }
+  tbody th {
+    position: sticky;
+    left: 0;
+  }
+  #myInput {
+    border: 1px solid tomato;
+  }
+</style>
+
+
+<div class="container">
+
+  
+
+  <h1 class="alert alert-light border rounded text-center">Course</h1>
+<a href="{% url 'assign' %}" class="btn btn-info mt-2 mb-4">Assign Course</a>
+  <input
+    class="form-control mb-3"
+    type="text"
+    name=""
+    id="myInput"
+    placeholder="Country..."
+    onkeyup="searchFun()"
+  />
+  <table class="table" id="myTable">
+    <thead>
+      <tr>
+        <th>Sno.</th>
+        <th>Course_code</th>
+        <th>Course_name</th>
+        <th>Credit</th>
+        <th>Deparetment</th>
+        <th>Semister</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in course %}
+      <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{c.course_code}}</td>
+        <td>{{c.course_name}}</td>
+        <td>{{c.credit}}</td>
+        <td>{{c.deparetment}}</td>
+        <td>{{c.semister}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+
+<script>
+  const searchFun = () => {
+    let filter = document.getElementById("myInput").value.toUpperCase();
+
+    let myTable = document.getElementById("myTable");
+    let tr = myTable.getElementsByTagName("tr");
+
+    for (var i = 0; i < tr.length; i++) {
+      let td = tr[i].getElementsByTagName("td")[1];
+
+      if (td) {
+        let textvalue = td.textContent || td.innerHTML;
+        if (textvalue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  };
+</script>
+</div>
+{% endblock content %}
