@@ -73,3 +73,8 @@ class Result(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     select_grade = models.CharField(
         choices=semister_grade, max_length=50, default="A")
+
+
+class SemisterRegister(models.Model):
+    student = models.ForeignKey(LoginSite, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)

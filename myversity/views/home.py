@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
 from django.views import View
 from myversity.models import Student_All_Info, LoginSite, Registration, News, Events
+from teacherapp.models import Result, SemisterRegister, Course
 
 
 class HomeView(View):
@@ -37,6 +38,24 @@ class NewsView(View):
 class EventsView(View):
     def get(self, request, id):
         student = request.session.get("mystu")
+
         fullevents = Events.objects.get(id=id)
         print(fullevents.title)
         return render(request, 'eventsfull.html', {'student': student, 'fullevents': fullevents})
+
+
+class ResultViewStudent(View):
+    def get(self, request):
+        student = request.session.get("mystu")
+        myname = Student_All_Info.objects.get(user__email=student)
+        print(student)
+        me = LoginSite.objects.get(email=student)
+        myresult = Result.objects.filter(student=me)
+        return render(request, 'result_view.html', {'student': student, 'myresult': myresult, 'myname': myname})
+
+
+class SemisterregisterView(View):
+    def get(self, request):
+        student = request.session.get("mystu")
+        course_main = Course.objects.all()
+        return render(request, 'semisterview.html', {'student': student, 'course': course_main})

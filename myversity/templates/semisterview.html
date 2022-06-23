@@ -1,6 +1,6 @@
 {% extends 'base.html' %} <br />
 {% load static %} <br />
-{% block title %}Result{%endblock title %} <br />
+{% block title %}Table{%endblock title %} <br />
 {% block content %}
 
 <style>
@@ -31,6 +31,11 @@
     position: sticky;
     left: 0;
   }
+
+  table, th, td{
+    border:1px solid black;
+    text-align:center;
+  }
   #myInput {
     border: 1px solid tomato;
   }
@@ -38,59 +43,60 @@
 
 
 <div class="container">
+ 
 
-   
-  <h1 class="alert alert-light border rounded text-center">{{myname.user.name}} Result</h1>
-  {% if messages %} <br>
-  {% for message in messages %}
-  <p
-    {%
-    if
-    message.tags
-    %}
-    class="alert alert-{{message.tags}} mb-5"
-    {%
-    endif
-    %}
-  >
-    {{message}}
-  </p>
-  {% endfor %} 
-  {% endif %}  
+  <h1 class="alert alert-light border rounded text-center">Course</h1>
 
-  {% for fm in form %}
-  <div class="form-group mb-3">
-    {{fm.label_tag}} {{fm}}
-    <small class="text-danger"> {{fm.errors|striptags}} </small>
-  </div>
-  {% endfor %}
+{% csrf_token %}
+{% if messages %} 
+{% for message in messages %}
+<p
+  {%
+  if
+  message.tags
+  %}
+  class="alert alert-{{message.tags}} mb-5"
+  {%
+  endif
+  %}
+>
+  {{message}}
+</p>
+{% endfor %} 
+{% endif %}  
 
   <input
     class="form-control mb-3"
     type="text"
     name=""
     id="myInput"
-    placeholder="Id No...."
+    placeholder="Course Code..."
     onkeyup="searchFun()"
   />
   <table class="table" id="myTable">
     <thead>
       <tr>
         <th>Sno.</th>
-        <th>Id No</th>
+        <th>Course_code</th>
+        <th>Course_name</th>
+        <th>Credit</th>
         <th>Deparetment</th>
-        <th>Course</th>
-        <th>Grade</th>
+        <th>Semister</th>
+        <th>Add</th>
+ 
       </tr>
     </thead>
     <tbody>
-      {% for c in myresult %}
+      {% for c in course %}
       <tr>
         <td>{{forloop.counter}}</td>
-        <td>{{c.id_no}}</td>
-        <td>{{c.department}}</td>
-        <td>{{c.course}}</td>
-        <td>{{c.select_grade}}</td>
+        <td>{{c.course_code}}</td>
+        <td>{{c.course_name}}</td>
+        <td>{{c.credit}}</td>
+        <td>{{c.deparetment}}</td>
+        <td>{{c.semister}}</td>
+        <td><a href="{% url 'editcourse' c.id %}" class="btn btn-info">Add</a></td>
+
       </tr>
       {% endfor %}
     </tbody>
@@ -102,7 +108,7 @@
 <script>
   const searchFun = () => {
     let filter = document.getElementById("myInput").value.toUpperCase();
-{% comment %}  {% endcomment %}
+
     let myTable = document.getElementById("myTable");
     let tr = myTable.getElementsByTagName("tr");
 

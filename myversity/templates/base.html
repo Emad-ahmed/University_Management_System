@@ -149,9 +149,11 @@
               >
               <div class="dropdown-content mt-2">
                 {% if student %}
-                <a href="calculator.htm" style="color: white">Result</a>
+                <a href="{% url 'resultviewstudent' %}" style="color: white"
+                  >Result</a
+                >
                 <hr class="bg-dark" />
-                <a href="tictoe.htm" style="color: white"
+                <a href="{% url 'semisterview' %}" style="color: white"
                   >Semester Registration</a
                 >
                 <hr class="bg-dark" />
