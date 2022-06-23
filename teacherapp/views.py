@@ -1,9 +1,11 @@
+from cmath import pi
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.views import View
 from teacherapp.models import Course
 from teacherapp.forms import CourseForm, CourseteacherForm, RseultForm
 from django.contrib import messages
+from teacherapp.models import Result
 # Create your views here.
 
 
@@ -71,3 +73,63 @@ class RseultView(View):
         else:
             messages.warning(request, 'Not Assign')
             return render(request, 'assign.html.html', {'form': form})
+
+
+class AllRseultView(View):
+    def get(self, request):
+        allresult = Result.objects.all()
+        return render(request, 'allresultview.html', {'allresult': allresult})
+
+
+class Deleteview(View):
+    def get(self, request, id):
+        studentresult = Result.objects.get(id=id)
+        studentresult.delete()
+        messages.success(request, "delete successfully")
+        return redirect("allresult")
+
+
+class EditResultview(View):
+    def get(self, request, id):
+        pi = Result.objects.get(id=id)
+        form = RseultForm(instance=pi)
+        return render(request, 'update_result.html', {'form': form})
+
+    def post(self, request, id):
+        pi = Result.objects.get(id=id)
+        form = RseultForm(request.POST, instance=pi)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request, 'Congratulations!! Updated Successfully')
+            return redirect('allresult')
+        else:
+            messages.warning(request, 'Not Updated')
+        return render(request, 'update_result.html', {'form': form})
+
+
+class DeleteCourse(View):
+    def get(self, request, id):
+        studentcourse = Course.objects.get(id=id)
+        studentcourse.delete()
+        messages.success(request, "delete successfully")
+        return redirect("course")
+
+
+class EditCourseview(View):
+    def get(self, request, id):
+        pi = Course.objects.get(id=id)
+        form = CourseForm(instance=pi)
+        return render(request, 'editcourse.html', {'form': form})
+
+    def post(self, request, id):
+        pi = Course.objects.get(id=id)
+        form = CourseForm(request.POST, instance=pi)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request, 'Congratulations!! Updated Successfully')
+            return redirect('course')
+        else:
+            messages.warning(request, 'Not Updated')
+        return render(request, 'editcourse.html', {'form': form})

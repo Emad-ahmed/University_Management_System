@@ -1,6 +1,6 @@
 {% extends 'base_teacher.html' %} <br />
 {% load static %} <br />
-{% block title %}Table{%endblock title %} <br />
+{% block title %}Result{%endblock title %} <br />
 {% block content %}
 
 <style>
@@ -31,11 +31,6 @@
     position: sticky;
     left: 0;
   }
-
-  table, th, td{
-    border:1px solid black;
-    text-align:center;
-  }
   #myInput {
     border: 1px solid tomato;
   }
@@ -43,60 +38,63 @@
 
 
 <div class="container">
- 
 
-  <h1 class="alert alert-light border rounded text-center">Course</h1>
-<a href="{% url 'assign' %}" class="btn btn-info mt-2 mb-4">Assign Course</a>
-{% csrf_token %}
-{% if messages %} 
-{% for message in messages %}
-<p
-  {%
-  if
-  message.tags
-  %}
-  class="alert alert-{{message.tags}} mb-5"
-  {%
-  endif
-  %}
->
-  {{message}}
-</p>
-{% endfor %} 
-{% endif %}  
+   
+  <h1 class="alert alert-light border rounded text-center">All Result</h1>
+  {% if messages %} <br>
+  {% for message in messages %}
+  <p
+    {%
+    if
+    message.tags
+    %}
+    class="alert alert-{{message.tags}} mb-5"
+    {%
+    endif
+    %}
+  >
+    {{message}}
+  </p>
+  {% endfor %} 
+  {% endif %}  
+
+  {% for fm in form %}
+  <div class="form-group mb-3">
+    {{fm.label_tag}} {{fm}}
+    <small class="text-danger"> {{fm.errors|striptags}} </small>
+  </div>
+  {% endfor %}
 
   <input
     class="form-control mb-3"
     type="text"
     name=""
     id="myInput"
-    placeholder="Course Code..."
+    placeholder="Country..."
     onkeyup="searchFun()"
   />
   <table class="table" id="myTable">
     <thead>
       <tr>
         <th>Sno.</th>
-        <th>Course_code</th>
-        <th>Course_name</th>
-        <th>Credit</th>
+        <th>Id No</th>
         <th>Deparetment</th>
-        <th>Semister</th>
+        <th>Course</th>
+        <th>Grade</th>
         <th>Edit</th>
         <th>Delete</th>
       </tr>
     </thead>
     <tbody>
-      {% for c in course %}
+      {% for c in allresult %}
       <tr>
         <td>{{forloop.counter}}</td>
-        <td>{{c.course_code}}</td>
-        <td>{{c.course_name}}</td>
-        <td>{{c.credit}}</td>
-        <td>{{c.deparetment}}</td>
-        <td>{{c.semister}}</td>
-        <td><a href="{% url 'editcourse' c.id %}" class="btn btn-info">Edit</a></td>
-        <td><a href="{% url 'deltecourse' c.id %}" class="btn btn-danger">Delete</a></td>
+        <td>{{c.id_no}}</td>
+        <td>{{c.department}}</td>
+        <td>{{c.course}}</td>
+        <td>{{c.select_grade}}</td>
+        <td><a href="{% url 'editresult' c.id %}" class="btn btn-info">Edit</a></td>
+        <td><a href="{% url 'delteresult' c.id %}" class="btn btn-danger">Delete</a></td>
       </tr>
       {% endfor %}
     </tbody>
