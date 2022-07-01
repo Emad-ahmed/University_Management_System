@@ -5,7 +5,7 @@
 {% block content %}
 
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
-{% for message in messages %}
+{% if messages %} {% for message in messages %}
 <div
   class="alert alert-{{ message.tags }} mb-0 alert-dismissible fade show"
   role="alert"
@@ -15,7 +15,7 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-{% endfor %} {% if form.errors %}
+{% endfor %} {% endif %} {% if form.errors %}
 <!--error-->
 {% for field in form %}
 <!--error-->

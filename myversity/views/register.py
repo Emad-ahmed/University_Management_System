@@ -14,6 +14,17 @@ from django.conf import settings
 import http.client
 from rest_framework.decorators import api_view
 import requests
+import re
+
+regex = '^(\+88|88)?01[3-9]\d{8}$'
+
+
+def check(phone):
+
+    if(re.search(regex, phone)):
+        return True
+    else:
+        return False
 
 
 class RegisterView(View):
@@ -24,18 +35,25 @@ class RegisterView(View):
     def post(self, request):
         try:
             fm = RegistrationForm(request.POST)
-            if fm.is_valid():
-                myemail = fm.cleaned_data["email"]
-                fm.save()
-                messages.success(request, 'Profile details updated.')
-            myuser = Registration.objects.get(email=myemail)
+            phone = request.POST.get("phone")
 
-            content = f"Hello {myuser.name}\nYour Registration Has Been Successfull.\nPay 500 For The Form Fee and Use This {myuser.referece_number} Code As A Refernce Number Thanks For Registration.Use This Link For Pay http://127.0.0.1:8000/payment/{myuser.id}\n\nLeading University, Sylhet"
-            send_mail("Successfully Registration",
-                      content,
-                      settings.EMAIL_HOST_USER,
-                      [myemail]
-                      )
-            return render(request, 'register.html', {'form': fm})
+            n = check(phone)
+            if n:
+                if fm.is_valid():
+                    myemail = fm.cleaned_data["email"]
+                    fm.save()
+                    messages.success(request, 'Profile details updated.')
+                myuser = Registration.objects.get(email=myemail)
+
+                content = f"Hello {myuser.name}\nYour Registration Has Been Successfull.\nPay 500 For The Form Fee and Use This {myuser.referece_number} Code As A Refernce Number Thanks For Registration.Use This Link For Pay http://127.0.0.1:8000/payment/{myuser.id}\n\nLeading University, Sylhet"
+                send_mail("Successfully Registration",
+                          content,
+                          settings.EMAIL_HOST_USER,
+                          [myemail]
+                          )
+                return render(request, 'register.html', {'form': fm})
+            else:
+                messages.warning(request, 'Wrong Number.')
+                return render(request, 'register.html', {'form': fm})
         except:
             return render(request, 'register.html', {'form': fm})

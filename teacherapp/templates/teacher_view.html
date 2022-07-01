@@ -1,0 +1,22 @@
+{% extends 'base_teacher.html' %} <br />
+{% load static %} <br />
+{% block title %}Teacher View{% endblock title %} <br />
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row">
+    {% for teacher in allteacher %}
+
+    <div class="col-lg-4 mb-4">
+      <div class="card" style="width: 18rem">
+        <img src="{{teacher.eventsimg.url}}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{teacher.name}}</h5>
+          <p class="card-text">email:{{teacher.email}}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

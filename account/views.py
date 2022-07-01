@@ -62,7 +62,7 @@ class Approve_RegisterView(View):
                   [email]
                   )
         myuser.delete()
-        print(payment_done)
+
         return redirect("addmission_approve")
 
 

@@ -48,8 +48,10 @@ class Deparetment(models.Model):
 
 
 class Course(models.Model):
-    course_code = models.CharField(max_length=100)
-    course_name = models.CharField(max_length=240)
+    course_code = models.CharField(
+        max_length=100, unique=True, default="n")
+    course_name = models.CharField(
+        max_length=240, unique=True, default="n")
     credit = models.IntegerField()
     description = models.TextField()
     deparetment = models.ForeignKey(Deparetment, on_delete=models.CASCADE)

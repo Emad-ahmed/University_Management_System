@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.views import View
 from teacherapp.models import Course
+from myversity.models import Teacher
 from teacherapp.forms import CourseForm, CourseteacherForm, RseultForm
 from django.contrib import messages
 from teacherapp.models import Result
@@ -11,13 +12,13 @@ from teacherapp.models import Result
 
 class HomeTeacher(View):
     def get(self, request):
-        return render(request, 'base_teacher.html')
+        allteacher = Teacher.objects.all()
+        return render(request, 'teacher_view.html', {'allteacher': allteacher})
 
 
 class CourseView(View):
     def get(self, request):
         course_main = Course.objects.all()
-
         return render(request, 'course.html', {'course': course_main})
 
 
@@ -28,7 +29,6 @@ class AssignCourseView(View):
 
     def post(self, request):
         form = CourseForm(request.POST)
-
         if form.is_valid():
             form.save()
             messages.success(
@@ -36,25 +36,7 @@ class AssignCourseView(View):
             return redirect('course')
         else:
             messages.warning(request, 'Not Assign')
-            return render(request, 'assign_course.html.html', {'form': form})
-
-
-class AssignTeacherView(View):
-    def get(self, request):
-        form = CourseteacherForm()
-        return render(request, 'assign.html', {'form': form})
-
-    def post(self, request):
-        form = CourseteacherForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-            messages.success(
-                request, 'Congratulations!! Assigned Successfully')
-            return redirect('course')
-        else:
-            messages.warning(request, 'Not Assign')
-            return render(request, 'assign.html.html', {'form': form})
+            return render(request, 'assign_course.html', {'form': form})
 
 
 class RseultView(View):
@@ -64,7 +46,6 @@ class RseultView(View):
 
     def post(self, request):
         form = RseultForm(request.POST)
-
         if form.is_valid():
             form.save()
             messages.success(
@@ -72,7 +53,7 @@ class RseultView(View):
             return redirect('result')
         else:
             messages.warning(request, 'Not Assign')
-            return render(request, 'assign.html.html', {'form': form})
+            return render(request, 'assign.html', {'form': form})
 
 
 class AllRseultView(View):
@@ -85,7 +66,7 @@ class Deleteview(View):
     def get(self, request, id):
         studentresult = Result.objects.get(id=id)
         studentresult.delete()
-        messages.success(request, "delete successfully")
+        messages.warning(request, "delete successfully")
         return redirect("allresult")
 
 

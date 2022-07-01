@@ -135,8 +135,10 @@ AUTH_KEY = 'YOUR_KEY_HERE'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
@@ -144,6 +146,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "sajidikram1245@gmail.com"
-EMAIL_HOST_PASSWORD = "NewI_12345"
+EMAIL_HOST_USER = "jannatultonne22@gmail.com"
+EMAIL_HOST_PASSWORD = "fmeloihemlksosrv"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

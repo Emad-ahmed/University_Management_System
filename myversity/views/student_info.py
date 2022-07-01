@@ -25,5 +25,7 @@ class StudentInfo(View):
             obj.user = myuser
             obj.save()
             request.session['student'] = myuser.email
+            messages.success(
+                request, "Successfully Assign Student Info Now You Can Login")
             return redirect('home')
         return render(request, 'student_info.html', {'form': fm})

@@ -19,14 +19,12 @@ class Login(View):
 
         try:
             mystudent = Student_All_Info.objects.get(user=student)
-
         except:
             mystudent = None
         print(mystudent)
         if student:
             if student.email == email:
                 if mystudent:
-                    print(mystudent.user)
                     request.session['mystu'] = mystudent.user.email
                     return redirect("home")
                 else:
@@ -36,7 +34,7 @@ class Login(View):
                 messages.warning(request, "Email and Password Invalid!")
         elif((email == "teacher231@gmail.com" and password == "teacher45632") or (email == "faruq@gmail.com" and password == "1234567")):
             request.session['teacher'] = "teacher231@gmail.com"
-            request.session['teacher1'] = "faruq@gmail.com"
+            request.session['teacher'] = "faruq@gmail.com"
             return redirect("/teacher/")
         elif(email == "account34567@gmail.com" and password == "account234"):
             request.session['account'] = "account34567@gmail.com"

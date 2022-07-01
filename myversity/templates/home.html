@@ -3,12 +3,21 @@
 {% block title %}Home{% endblock title %} <br />
 
 {% block content %} <br />
-
 {% load news_load %} <br />
 
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
-
+{% if messages %} {% for message in messages %}
+<div
+  class="alert alert-{{ message.tags }} mb-0 alert-dismissible fade show"
+  role="alert"
+>
+  <strong>{{ message }}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %} {% endif %}
 <div
   id="carouselExampleCaptions"
   class="carousel slide"
@@ -94,7 +103,7 @@
         <img src="{{news.news_phot.url}}" class="card-img-top" alt="..." />
         <div class="card-body">
           <h5 class="card-title">{{news.title}}</h5>
-          <p class="card-text">{{news.allnmews|cutword}}</p>
+          <p class="card-text">{{news.allnmews|cutword}}.............</p>
           <a href="{% url 'news' news.id %}" class="btn btn-primary"
             >Read More</a
           >
