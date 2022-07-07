@@ -1,12 +1,10 @@
 import email
 from django.shortcuts import render, redirect, HttpResponseRedirect
-
 from django.contrib.auth.hashers import check_password
 from myversity.models import Student_All_Info, Registration
 from myversity.forms import StudentAllForm
 from django.views import View
 from myversity.models.loginregister import LoginSite
-
 from django.contrib import messages
 
 

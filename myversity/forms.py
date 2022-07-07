@@ -31,25 +31,35 @@ class RegistrationForm(forms.ModelForm):
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
-
         try:
             match = Registration.objects.get(email=email)
         except Registration.DoesNotExist:
             return email
-
         raise forms.ValidationError('This email address is already in use.')
 
     def clean_phone(self):
         phone = self.cleaned_data.get('phone')
-
         try:
             match = Registration.objects.get(phone=phone)
-
         except Registration.DoesNotExist:
             return phone
 
         raise forms.ValidationError(
             'This Phone Number  is already in use.')
+
+    def clean_ssc_gpa(self):
+        ssc_gpa = self.cleaned_data['ssc_gpa']
+        if ssc_gpa > 5:
+            raise forms.ValidationError("Its Must Be less than 5")
+
+        return ssc_gpa
+
+    def clean_hsc_gpa(self):
+        hsc_gpa = self.cleaned_data['hsc_gpa']
+        if hsc_gpa > 5:
+            raise forms.ValidationError("Its Must Be less than 5")
+
+        return hsc_gpa
 
 
 class StudentAllForm(forms.ModelForm):

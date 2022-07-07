@@ -9,6 +9,7 @@ urlpatterns = [
     path("register/", RegisterView.as_view(), name="register"),
     path("payment/<int:id>", PaymentView.as_view(), name="payment"),
     path("bba/", BBAVIEW.as_view(), name="bba"),
+
     path("cse/", CSEVIEW.as_view(), name="cse"),
     path("eee/", CSEVIEW.as_view(), name="eee"),
     path("about/", AboutView.as_view(), name="about"),
@@ -16,6 +17,7 @@ urlpatterns = [
     path("showallinfoteacher/<int:id>/",
          AllteachInfo.as_view(), name="showallinfoteacher"),
     path('loginview/', Login.as_view(), name='loginview'),
+
     path('studentallinfo/', StudentInfo.as_view(), name='studentallinfo'),
     path('tution_fees/', TutionFeesView.as_view(), name='tution_fees'),
     path('guide_line/', GuideLineView.as_view(), name='guide_line'),

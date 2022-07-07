@@ -20,7 +20,6 @@ regex = '^(\+88|88)?01[3-9]\d{8}$'
 
 
 def check(phone):
-
     if(re.search(regex, phone)):
         return True
     else:
@@ -36,8 +35,8 @@ class RegisterView(View):
         try:
             fm = RegistrationForm(request.POST)
             phone = request.POST.get("phone")
-
             n = check(phone)
+
             if n:
                 if fm.is_valid():
                     myemail = fm.cleaned_data["email"]
