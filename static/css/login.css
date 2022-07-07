@@ -409,3 +409,59 @@ form:after {
     background-position: 0 -135px;
     color: #00aeef;
 }
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    body {
+      
+        margin: 0;
+        padding: 0;
+        position: static;
+    }
+    #content {
+        
+        border: 1px solid #c4c6ca;
+        margin: 0;
+        padding: 25px 0 0;
+        position: relative;
+        text-align: center;
+        text-shadow: 0 1px 0 #fff;
+        width: 19rem;
+    }
+    .container {
+        margin: 0;
+        position: static;
+        width: 0;
+    }
+    
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (max-width: 600px) {...} */
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (max-width: 768px) {...} */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (max-width: 992px) {...} */
+
+
+@media only screen and (max-width: 350px) {
+    
+    #content {
+        
+        border: 1px solid #c4c6ca;
+        margin: 0;
+        padding: 25px 0 0;
+        position: relative;
+        text-align: center;
+        text-shadow: 0 1px 0 #fff;
+        width: 17rem;
+    }
+    
+    
+
+}

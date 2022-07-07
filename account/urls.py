@@ -12,5 +12,4 @@ urlpatterns = [
          name="updateaddmission"),
     path("deleteadmission/<int:id>/", deleteadmission,
          name="deleteadmission"),
-
 ]

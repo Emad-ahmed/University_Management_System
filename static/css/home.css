@@ -13,6 +13,11 @@ body {
     background: #EEEEEE;
 }
 
+.navbar
+{
+    width: 100%;
+}
+
 .topbar {
     background-color: #ADEFD1FF;
     padding: 1.5rem;
@@ -269,4 +274,48 @@ nav a {
     margin-top: 3rem;
     background-color: #7DC2AE;
     color: #000000;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    
+    .dropbtn {
+
+        padding: 1px;
+        margin-top:8px;
+        
+    }
+    .card{
+        width: 15rem;
+        margin: auto;
+    }
+
+    iframe
+    {
+        width: 400px;
+        height: 200px;
+    }
+    .tih1 {
+        width: 12rem;
+       
+    }
+
+}
+
+
+@media only screen and (max-width: 450px) {
+    
+    
+
+    iframe
+    {
+        width: 350px;
+        height: 200px;
+    }
+    .card{
+        width: 10rem;
+        margin: auto;
+    }
+
 }
