@@ -36,6 +36,16 @@ def checkemail(email):
         return False
 
 
+regexname = '^[a-zA-Z. ]+$'
+
+
+def checkemail(name):
+    if(re.search(regexname, name)):
+        return True
+    else:
+        return False
+
+
 class RegisterView(View):
     def get(self, request):
         fm = RegistrationForm()
@@ -46,9 +56,11 @@ class RegisterView(View):
             fm = RegistrationForm(request.POST)
             phone = request.POST.get("phone")
             email = request.POST.get("email")
+            name = request.POST.get("name")
             n = check(phone)
             e = checkemail(email)
-            if n and e:
+            name = checkemail(name)
+            if n and e and name:
                 if fm.is_valid():
                     myemail = fm.cleaned_data["email"]
                     fm.save()
@@ -63,7 +75,8 @@ class RegisterView(View):
                           )
                 return render(request, 'register.html', {'form': fm})
             else:
-                messages.warning(request, 'Wrong Number.')
+                messages.error(
+                    request, 'Not Valid Name or Not Valid Email or Not Valid Mobile Number')
                 return render(request, 'register.html', {'form': fm})
         except:
             return render(request, 'register.html', {'form': fm})

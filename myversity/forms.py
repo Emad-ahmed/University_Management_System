@@ -3,7 +3,6 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, User
 from django import forms
 from django.forms import fields, widgets
 from django.core import validators
-
 from myversity.models import Registration, Student_All_Info
 
 

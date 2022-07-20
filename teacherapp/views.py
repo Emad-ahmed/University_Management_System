@@ -12,14 +12,22 @@ from teacherapp.models import Result
 
 class HomeTeacher(View):
     def get(self, request):
-        allteacher = Teacher.objects.all()
-        return render(request, 'teacher_view.html', {'allteacher': allteacher})
+        teacher = request.session.get("teacher")
+        if teacher:
+            allteacher = Teacher.objects.all()
+            return render(request, 'teacher_view.html', {'allteacher': allteacher})
+        else:
+            return redirect('/')
 
 
 class CourseView(View):
     def get(self, request):
-        course_main = Course.objects.all()
-        return render(request, 'course.html', {'course': course_main})
+        teacher = request.session.get("teacher")
+        if teacher:
+            course_main = Course.objects.all()
+            return render(request, 'course.html', {'course': course_main})
+        else:
+            return redirect('/')
 
 
 class AssignCourseView(View):
