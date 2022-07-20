@@ -26,6 +26,16 @@ def check(phone):
         return False
 
 
+regexemail = '^[a-zA-Z0-9_-]{3,}@[a-zA-Z0-9_-]{3,}\.[a-zA-Z]{2,4}$'
+
+
+def checkemail(email):
+    if(re.search(regexemail, email)):
+        return True
+    else:
+        return False
+
+
 class RegisterView(View):
     def get(self, request):
         fm = RegistrationForm()
@@ -35,9 +45,10 @@ class RegisterView(View):
         try:
             fm = RegistrationForm(request.POST)
             phone = request.POST.get("phone")
+            email = request.POST.get("email")
             n = check(phone)
-
-            if n:
+            e = checkemail(email)
+            if n and e:
                 if fm.is_valid():
                     myemail = fm.cleaned_data["email"]
                     fm.save()

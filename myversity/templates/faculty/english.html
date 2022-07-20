@@ -1,0 +1,36 @@
+{% extends 'base.html' %} <br />
+
+{% block title %}English{% endblock title %} <br />
+
+{% block content %} <br />
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      {% for b in eng %}
+
+      <div class="col-lg-4">
+        <div class="card cardteacher" style="width: 20rem">
+          <img src="{{b.eventsimg.url}}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{{b.name}}</h5>
+            <p class="card-text">{{b.postion}}</p>
+            <p class="card-text">{{b.department}}</p>
+            <a
+              href="{% url 'showallinfoteacher' b.id %}"
+              class="btn btn-primary"
+              >See All</a
+            >
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock content %}

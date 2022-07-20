@@ -34,3 +34,31 @@ class EEEVIEW(View):
         student = request.session.get("mystu")
         eee = Teacher.objects.filter(department='EEE')
         return render(request, 'faculty/eee.html', {'eee': eee, 'student': student})
+
+
+class EnglishVIEW(View):
+    def get(self, request):
+        student = request.session.get("mystu")
+        eng = Teacher.objects.filter(department='English')
+        return render(request, 'faculty/english.html', {'eng': eng, 'student': student})
+
+
+class CivilVIEW(View):
+    def get(self, request):
+        student = request.session.get("mystu")
+        civil = Teacher.objects.filter(department='Civil')
+        return render(request, 'faculty/civil.html', {'civil': civil, 'student': student})
+
+
+class ArchitecureVIEW(View):
+    def get(self, request):
+        student = request.session.get("mystu")
+        arch = Teacher.objects.filter(department='Architecture')
+        return render(request, 'faculty/civil.html', {'arch': arch, 'student': student})
+
+
+class LawVIEW(View):
+    def get(self, request):
+        student = request.session.get("mystu")
+        law = Teacher.objects.filter(department='Law')
+        return render(request, 'faculty/civil.html', {'law': law, 'student': student})
