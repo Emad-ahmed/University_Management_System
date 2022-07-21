@@ -39,7 +39,7 @@ def checkemail(email):
 regexname = '^[a-zA-Z. ]+$'
 
 
-def checkemail(name):
+def checkname(name):
     if(re.search(regexname, name)):
         return True
     else:
@@ -52,31 +52,26 @@ class RegisterView(View):
         return render(request, 'register.html', {'form': fm})
 
     def post(self, request):
-        try:
-            fm = RegistrationForm(request.POST)
-            phone = request.POST.get("phone")
-            email = request.POST.get("email")
-            name = request.POST.get("name")
-            n = check(phone)
-            e = checkemail(email)
-            name = checkemail(name)
-            if n and e and name:
-                if fm.is_valid():
-                    myemail = fm.cleaned_data["email"]
-                    fm.save()
-                    messages.success(request, 'Profile details updated.')
-                myuser = Registration.objects.get(email=myemail)
+        fm = RegistrationForm(request.POST)
 
-                content = f"Hello {myuser.name}\nYour Registration Has Been Successfull.\nPay 500 For The Form Fee and Use This {myuser.referece_number} Code As A Refernce Number Thanks For Registration.Use This Link For Pay http://127.0.0.1:8000/payment/{myuser.id}\n\nLeading University, Sylhet"
-                send_mail("Successfully Registration",
-                          content,
-                          settings.EMAIL_HOST_USER,
-                          [myemail]
-                          )
-                return render(request, 'register.html', {'form': fm})
-            else:
-                messages.error(
-                    request, 'Not Valid Name or Not Valid Email or Not Valid Mobile Number')
-                return render(request, 'register.html', {'form': fm})
-        except:
+        if fm.is_valid():
+            myemail = fm.cleaned_data["email"]
+            fm.save()
+            messages.success(request, 'Profile details updated.')
+
+            try:
+                myuser = Registration.objects.get(email=myemail)
+            except:
+                myuser = None
+
+            content = f"Hello {myuser.name}\nYour Registration Has Been Successfull.\nPay 500 For The Form Fee and Use This {myuser.referece_number} Code As A Refernce Number Thanks For Registration.Use This Link For Pay http://127.0.0.1:8000/payment/{myuser.id}\n\nLeading University, Sylhet"
+            send_mail("Successfully Registration",
+                      content,
+                      settings.EMAIL_HOST_USER,
+                      [myemail]
+                      )
+            return render(request, 'register.html', {'form': fm})
+
+        else:
+            messages.error(request, "Not Valid")
             return render(request, 'register.html', {'form': fm})

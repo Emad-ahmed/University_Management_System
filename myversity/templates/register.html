@@ -4,13 +4,19 @@
 {% load static %} <br />
 {% block content %}
 
+<style>
+  #error {
+    color: red;
+  }
+</style>
+
 <link rel="stylesheet" href="{% static 'css/home.css' %}" />
 {% if messages %} {% for message in messages %}
 <div
   class="alert alert-{{ message.tags }} mb-4 alert-dismissible fade show"
   role="alert"
 >
-  <strong>{{ message }}</strong>
+  <strong id="error">{{ message }}</strong>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -27,7 +33,13 @@
 <div class="container signupcontainer pb-5">
   <h1 class="text-center mt-5 mb-3">Registration</h1>
   <div class="jumbotron register loginjum p-5 w-75 m-auto">
-    <form action="" class="mainform" method="post" novalidate>
+    <form
+      action=""
+      class="mainform"
+      method="post"
+      onsubmit="return formValidation()"
+      novalidate
+    >
       {% csrf_token %} {% for fm in form %} {{fm.label_tag}} {{fm}}
       <p class="text-danger">{{fm.errors|striptags}}</p>
 
@@ -36,4 +48,6 @@
     </form>
   </div>
 </div>
+
+<script src="{% static 'js/validation.js' %}"></script>
 {% endblock content %}
