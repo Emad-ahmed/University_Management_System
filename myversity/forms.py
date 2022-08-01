@@ -16,7 +16,7 @@ class RegistrationForm(forms.ModelForm):
         model = Registration
         fields = ('name',  'phone', 'email',
                   'departMent', 'ssc_gpa', 'hsc_gpa')
-        labels = {'email': "Email", 'departMent': "Department", "phone": "Mobile"
+        labels = {'email': "Email Is", 'departMent': "Department", "phone": "Mobile"
                   }
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
