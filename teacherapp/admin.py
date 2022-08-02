@@ -1,7 +1,7 @@
 from distutils.log import Log
 from django.contrib import admin
 from myversity.models.faculty import Teacher
-from teacherapp.models import Deparetment, Course, CourseAssign, Result
+from teacherapp.models import Deparetment, Course, CourseAssign, Result, SemisterRegister
 
 # Register your models here.
 
@@ -23,4 +23,9 @@ class CourseTeacherDisplay(admin.ModelAdmin):
 
 @admin.register(Result)
 class ResultDisplay(admin.ModelAdmin):
+    list_display = ["id"]
+
+
+@admin.register(SemisterRegister)
+class SemisterRegisterDisplay(admin.ModelAdmin):
     list_display = ["id"]

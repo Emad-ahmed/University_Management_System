@@ -45,7 +45,7 @@
 <div class="container">
  
 
-  <h1 class="alert alert-light border rounded text-center">Course</h1>
+  <h1 class="border rounded text-center p-3 mt-5 mb-5">All Course</h1>
 
 {% csrf_token %}
 {% if messages %} 
@@ -95,13 +95,50 @@
         <td>{{c.credit}}</td>
         <td>{{c.deparetment}}</td>
         <td>{{c.semister}}</td>
-        <td><a href="{% url 'editcourse' c.id %}" class="btn btn-info">Add</a></td>
+        <td><a href="{% url 'addstudentsemister' c.id %}" class="btn btn-info">Add</a></td>
 
       </tr>
       {% endfor %}
     </tbody>
   </table>
+
+<hr class="mt-5 mb-5">
+
+  <div class="mt-5">
+    <h1 class="text-center text-dark mb-5 fw-bold border rounded text-center p-3">Your Course</h1>
+    <table class="table" id="myTable">
+      <thead>
+        <tr>
+          <th>Sno.</th>
+          <th>Course_code</th>
+          <th>Course_name</th>
+          <th>Credit</th>
+          <th>Deparetment</th>
+          <th>Semister</th>
+
+   
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in studentsem %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{c.course.course_code}}</td>
+          <td>{{c.course.course_name}}</td>
+          <td>{{c.course.credit}}</td>
+          <td>{{c.course.deparetment}}</td>
+          <td>{{c.course.semister}}</td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div>
+
 </div>
+
+
 
 
 

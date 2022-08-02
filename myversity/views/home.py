@@ -1,9 +1,11 @@
+
 from django.http import request
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
 from django.views import View
 from myversity.models import Student_All_Info, LoginSite, Registration, News, Events
 from teacherapp.models import Result, SemisterRegister, Course
+from django.contrib import messages
 
 
 class HomeView(View):
@@ -57,5 +59,23 @@ class ResultViewStudent(View):
 class SemisterregisterView(View):
     def get(self, request):
         student = request.session.get("mystu")
+        mystu = LoginSite.objects.get(email=student)
+        studentsem = SemisterRegister.objects.filter(student=mystu)
         course_main = Course.objects.all()
-        return render(request, 'semisterview.html', {'student': student, 'course': course_main})
+        return render(request, 'semisterview.html', {'student': student, 'course': course_main, 'studentsem': studentsem})
+
+
+class StudentSemisterregisteradd(View):
+    def get(self, request, id):
+        student = request.session.get("mystu")
+        mystu = LoginSite.objects.get(email=student)
+        courseadd = Course.objects.get(id=id)
+        mysavesemister = SemisterRegister(student=mystu, course=courseadd)
+        if mysavesemister:
+            coursesem = SemisterRegister.objects.filter(course=courseadd)
+            if not coursesem:
+                mysavesemister.save()
+            else:
+                messages.warning(request, "Already You Add This Course")
+
+        return redirect("semisterview")

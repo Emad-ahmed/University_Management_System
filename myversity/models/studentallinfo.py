@@ -34,7 +34,7 @@ Religion = (
 
 Group = (
     ("Science", "Science"),
-    ("ARS", "ARS"),
+    ("Humanities", "Humanities"),
     ("Business", "Business"),
 
 )
