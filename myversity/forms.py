@@ -49,14 +49,14 @@ class RegistrationForm(forms.ModelForm):
     def clean_ssc_gpa(self):
         ssc_gpa = self.cleaned_data['ssc_gpa']
         if ssc_gpa > 5:
-            raise forms.ValidationError("Its Must Be less than 5")
+            raise forms.ValidationError("GPA Must Be less than 5")
 
         return ssc_gpa
 
     def clean_hsc_gpa(self):
         hsc_gpa = self.cleaned_data['hsc_gpa']
         if hsc_gpa > 5:
-            raise forms.ValidationError("Its Must Be less than 5")
+            raise forms.ValidationError("GPA Must Be less than 5")
 
         return hsc_gpa
 

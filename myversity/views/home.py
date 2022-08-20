@@ -79,3 +79,8 @@ class StudentSemisterregisteradd(View):
                 messages.warning(request, "Already You Add This Course")
 
         return redirect("semisterview")
+
+
+class Classroutine(View):
+    def get(self, request):
+        return render(request, "classroutine.html")

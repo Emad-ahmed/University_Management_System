@@ -10,9 +10,7 @@ class CourseForm(forms.ModelForm):
         model = Course
         fields = ('course_code',  'course_name', 'credit',
                   'description', 'deparetment', 'semister')
-        labels = {'departMent': "Select the Department",
 
-                  }
         widgets = {
             'course_code': forms.TextInput(attrs={'class': 'form-control'}),
             'course_name': forms.TextInput(attrs={'class': 'form-control'}),

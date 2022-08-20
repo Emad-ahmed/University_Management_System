@@ -16,7 +16,7 @@ h6,
 p,
 blockquote,
 pre,
-a,
+
 abbr,
 acronym,
 address,
@@ -48,8 +48,6 @@ dl,
 dt,
 dd,
 ol,
-ul,
-li,
 fieldset,
 form,
 label,
@@ -74,7 +72,6 @@ td {
 body {
     background: #DCDDDF url(https://cssdeck.com/uploads/media/items/7/7AF2Qzt.png);
     color: #000;
-    font: 14px Arial;
     margin: 0 auto;
     padding: 0;
     position: relative;
@@ -461,7 +458,4 @@ form:after {
         text-shadow: 0 1px 0 #fff;
         width: 17rem;
     }
-    
-    
-
 }

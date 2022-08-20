@@ -1,10 +1,10 @@
-from cmath import pi
+
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.views import View
 from teacherapp.models import Course
 from myversity.models import Teacher
-from teacherapp.forms import CourseForm, CourseteacherForm, RseultForm
+from teacherapp.forms import CourseForm, RseultForm
 from django.contrib import messages
 from teacherapp.models import Result
 # Create your views here.
@@ -17,7 +17,7 @@ class HomeTeacher(View):
             allteacher = Teacher.objects.all()
             return render(request, 'teacher_view.html', {'allteacher': allteacher})
         else:
-            return redirect('/')
+            return redirect('loginview')
 
 
 class CourseView(View):
@@ -122,3 +122,8 @@ class EditCourseview(View):
         else:
             messages.warning(request, 'Not Updated')
         return render(request, 'editcourse.html', {'form': form})
+
+
+def logout_teacher(request):
+    request.session.clear()
+    return redirect('loginview')

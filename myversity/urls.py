@@ -1,5 +1,5 @@
 from django.urls import path
-from myversity.views import HomeView, RegisterView, PaymentView, BBAVIEW, Login, logout, StudentInfo, AboutView, ScholarView, AllteachInfo, CSEVIEW, EEEVIEW, NewsView, EventsView, TutionFeesView, GuideLineView, ResultViewStudent, SemisterregisterView, EnglishVIEW, CivilVIEW, ArchitecureVIEW, LawVIEW, StudentSemisterregisteradd
+from myversity.views import HomeView, RegisterView, PaymentView, BBAVIEW, Login, logout, StudentInfo, AboutView, ScholarView, AllteachInfo, CSEVIEW, EEEVIEW, NewsView, EventsView, TutionFeesView, GuideLineView, ResultViewStudent, SemisterregisterView, EnglishVIEW, CivilVIEW, ArchitecureVIEW, LawVIEW, StudentSemisterregisteradd, Classroutine
 
 
 urlpatterns = [
@@ -16,7 +16,7 @@ urlpatterns = [
     path("civil/", CivilVIEW.as_view(), name="civil"),
     path("arch/", ArchitecureVIEW.as_view(), name="arch"),
     path("law/", LawVIEW.as_view(), name="law"),
-
+    path("classroutine/", Classroutine.as_view(), name="classroutine"),
 
     path("about/", AboutView.as_view(), name="about"),
     path("scholar/", ScholarView.as_view(), name="scholar"),

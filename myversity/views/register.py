@@ -14,36 +14,6 @@ from django.conf import settings
 import http.client
 from rest_framework.decorators import api_view
 import requests
-import re
-
-regex = '^(\+88|88)?01[3-9]\d{8}$'
-
-
-def check(phone):
-    if(re.search(regex, phone)):
-        return True
-    else:
-        return False
-
-
-regexemail = '^[a-zA-Z0-9_-]{3,}@[a-zA-Z0-9_-]{3,}\.[a-zA-Z]{2,4}$'
-
-
-def checkemail(email):
-    if(re.search(regexemail, email)):
-        return True
-    else:
-        return False
-
-
-regexname = '^[a-zA-Z. ]+$'
-
-
-def checkname(name):
-    if(re.search(regexname, name)):
-        return True
-    else:
-        return False
 
 
 class RegisterView(View):

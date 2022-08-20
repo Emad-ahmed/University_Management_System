@@ -1,0 +1,22 @@
+{% extends 'base.html' %} <br />
+
+{% block title %}Events{% endblock title %} <br />
+
+{% block content %} <br />
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+<div class="container mt-2 teachjum">
+  <div class="text-center">
+    <h3 class="mb-4">Class Routine</h3>
+    <embed
+      src="{% static 'img/classroutine.pdf' %}"
+      width="800px"
+      height="2100px"
+    />
+  </div>
+</div>
+
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock content %}
